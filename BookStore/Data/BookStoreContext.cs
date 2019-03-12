@@ -11,6 +11,8 @@ namespace BookStore.Data
     {
         public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options) { }
 
-        public DbSet<Account> Accounts { get; set; }
+        //public DbSet<Account> Accounts { get; set; }
+        public DbSet<Book> Books { get; set; }
+
     }
 }

@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
+using BookStore.Data.Interface;
+using BookStore.Data.Mocks;
+using BookStore.Data.Repositories;
 
 namespace BookStore
 {
@@ -26,7 +29,7 @@ namespace BookStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Get ConnectionString AND Add DbContext
+            //Database Configuration
             services.AddDbContext<BookStoreContext>(op => op.UseSqlServer(Configuration.GetConnectionString("BookStoreConString")));
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -36,6 +39,8 @@ namespace BookStore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //Repository Configuration
+            services.AddTransient<IBookRepository, BookRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
