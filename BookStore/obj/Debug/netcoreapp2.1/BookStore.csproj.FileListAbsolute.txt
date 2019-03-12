@@ -31,3 +31,4 @@ C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.pdb
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csproj.CopyComplete
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Book\Index.g.cshtml.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Book\Details.g.cshtml.cs

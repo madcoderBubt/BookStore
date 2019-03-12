@@ -26,7 +26,7 @@ INSERT INTO [dbo].[Books]
 		   'Harry Potter 1'
            ,'Harry Potter 1'
            ,'Harry Potter 1'
-           ,'~/Images/ggg.jpg'
+           ,'~/images/ggg.jpg'
            ,1
            ,19
            ,50
@@ -34,21 +34,21 @@ INSERT INTO [dbo].[Books]
 		   ('Harry Potter 2'
            ,'Harry Potter 1'
            ,'Harry Potter 1'
-           ,'~/Images/ggg.jpg'
+           ,'~/images/ggg.jpg'
            ,1
            ,19
            ,50),
 		   ('Harry Potter 3'
            ,'Harry Potter 1'
            ,'Harry Potter 1'
-           ,'~/Images/ggg.jpg'
+           ,'~/images/ggg.jpg'
            ,1
            ,19
            ,50),
 		   ('Harry Potter 4'
            ,'Harry Potter 1'
            ,'Harry Potter 1'
-           ,'~/Images/ggg.jpg'
+           ,'~/images/ggg.jpg'
            ,1
            ,19
            ,50)
