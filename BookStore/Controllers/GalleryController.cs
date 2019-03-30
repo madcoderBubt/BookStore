@@ -1,49 +1,33 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
-    public class BookController : Controller
+    public class GalleryController : Controller
     {
-        private IBookRepository _bookRepository;
-        public BookController(IBookRepository bookRepository)
-        {
-            _bookRepository = bookRepository;
-        }
-
-        // GET: Book
+        // GET: Gallery
         public ActionResult Index()
         {
-            var bookList = _bookRepository.Books;
-            return View(bookList);
+            return View();
         }
 
-        // GET: Book
-        public ActionResult Gallery()
-        {
-            var bookList = _bookRepository.Books;
-            return View(bookList);
-        }
-
-        // GET: Book/Details/5
+        // GET: Gallery/Details/5
         public ActionResult Details(int id)
         {
-            var bookItem = _bookRepository.GetBookById(id);
-            return View(bookItem);
+            return View();
         }
 
-        // GET: Book/Create
+        // GET: Gallery/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Book/Create
+        // POST: Gallery/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -60,13 +44,13 @@ namespace BookStore.Controllers
             }
         }
 
-        // GET: Book/Edit/5
+        // GET: Gallery/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Book/Edit/5
+        // POST: Gallery/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -83,13 +67,13 @@ namespace BookStore.Controllers
             }
         }
 
-        // GET: Book/Delete/5
+        // GET: Gallery/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Book/Delete/5
+        // POST: Gallery/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
