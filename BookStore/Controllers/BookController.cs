@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.Data;
 using BookStore.Data.Interface;
+using BookStore.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
     public class BookController : Controller
     {
+        //private BookStoreContext _bookStoreContext;
         private IBookRepository _bookRepository;
-        public BookController(IBookRepository bookRepository)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public BookController(IBookRepository bookRepository, IHostingEnvironment hostingEnvironment)
         {
             _bookRepository = bookRepository;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         // GET: Book
@@ -46,11 +53,32 @@ namespace BookStore.Controllers
         // POST: Book/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Book book)
         {
             try
             {
                 // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    //book.Id = 1;
+                    book.Active = true;
+                    if (book.ImgFile != null)
+                    {
+                        //Destination FileName
+                        var fileName = Path.Combine(_hostingEnvironment.WebRootPath + "/images/", Path.GetFileName(book.ImgFile.FileName));
+                        FileStream fileStream = new FileStream(fileName, FileMode.Create);
+                        //Coping File to Server
+                        book.ImgFile.CopyTo(fileStream);
+                        book.ImgUrl = "/images/" + Path.GetFileName(fileName);
+                    }
+                    else
+                    {
+                        book.ImgUrl = "/images/ggg.jpg";
+                        //throw new Exception("File Not found");
+                    }
+
+                    _bookRepository.Add(book);
+                }
 
                 return RedirectToAction(nameof(Index));
             }

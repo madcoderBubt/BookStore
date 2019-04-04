@@ -16,8 +16,14 @@ namespace BookStore.Data.Repositories
         }
 
         public IEnumerable<Book> Books => _bookStoreContext.Books;
+        //public Book Book => _bookStoreContext;
 
         public Book GetBookById(int id) => _bookStoreContext.Books.FirstOrDefault(p => p.Id == id);
-        
+        public void Add(Book book)
+        {
+            _bookStoreContext.Add(book);
+            _bookStoreContext.SaveChanges();
+        }
+
     }
 }

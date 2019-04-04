@@ -48,6 +48,24 @@ body {
     padding: 9px;
     color: #333;
 }
+.thumbnail .img-box img{
+    position:relative;
+}
+.thumbnail .img-box .img-box-cart{
+    display:none;
+}
+.thumbnail:hover .img-box .img-box-cart {
+    display:block;
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    background: darkred;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
 
 footer {
     margin: 50px 0;
