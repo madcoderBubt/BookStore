@@ -73,6 +73,7 @@ namespace BookStore.Controllers
                     }
                     else
                     {
+                        //Set default img for instance
                         book.ImgUrl = "/images/ggg.jpg";
                         //throw new Exception("File Not found");
                     }

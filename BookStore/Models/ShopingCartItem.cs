@@ -8,10 +8,9 @@ namespace BookStore.Models
 {
     public class ShopingCartItem : Entity
     {
-        public int Amount { get; set; }
-        public int ShopingCartId { get; set; }
-
+        public int BookId { get; set; }
         public Book Book { get; set; }
-
+        public int Amount { get; set; }
+        public string ShopingCartId { get; set; }
     }
 }

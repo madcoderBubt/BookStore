@@ -34,6 +34,7 @@ body {
     width: 100%;
 }
 
+
 .ratings {
     padding-right: 10px;
     padding-left: 10px;
@@ -48,8 +49,23 @@ body {
     padding: 9px;
     color: #333;
 }
-.thumbnail .img-box img{
-    position:relative;
+
+.img-box {
+    width: auto;
+    height: 326px;
+    background-color: #808080;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.thumbnail .img-box img {
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    height:auto;
+    width:auto;
 }
 .thumbnail .img-box .img-box-cart{
     display:none;

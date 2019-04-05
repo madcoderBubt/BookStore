@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.Data.Interface;
 using BookStore.Data.Mocks;
 using BookStore.Data.Repositories;
+using BookStore.Models;
 
 namespace BookStore
 {
@@ -42,7 +43,15 @@ namespace BookStore
             //Repository Configuration
             services.AddTransient<IBookRepository, BookRepository>();
 
+            //For Shoping Cart
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopingCart.GetShopingCart(sp));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            //Temporary Service for Shoping Cart
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +70,8 @@ namespace BookStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
