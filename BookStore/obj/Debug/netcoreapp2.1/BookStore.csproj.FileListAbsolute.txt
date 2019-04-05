@@ -35,3 +35,4 @@ C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Book\Gallery.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Book\Create.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\ShopingCart\Index.g.cshtml.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Home\_Carousel.g.cshtml.cs

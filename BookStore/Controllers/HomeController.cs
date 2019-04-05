@@ -5,14 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.Models;
+using BookStore.Data.Interface;
+using BookStore.Models.ViewModels;
 
 namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IBookRepository _bookRepository;
+        public HomeController(IBookRepository bookRepository)
+        {
+            _bookRepository = bookRepository;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var homeVM = new HomeViewModel
+            {
+                PreferredBooks = _bookRepository.Books
+            };
+            return View(homeVM);
         }
 
         public IActionResult About()

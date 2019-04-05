@@ -1,0 +1,32 @@
+﻿@model Book
+
+<link href="~/css/shop-homepage.css" rel="stylesheet" />
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="img-box">
+            <img src="@Url.Content(Model.ImgUrl)" alt="">
+            <a asp-action="" class="img-box-cart">Add to Cart</a>
+        </div>
+        <div class="caption">
+            <h4 class="pull-right">$@Model.Price</h4>
+            <h4>
+                <a href="#">@Model.Name</a>
+            </h4>
+            <h5>
+                <a target="_blank" href="http://www.fb.com/shbsovon">@Model.Author</a>
+            </h5>
+            <p>@Model.Details</p>
+        </div>
+        <div class="ratings">
+            <p class="pull-right">15 reviews</p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+            </p>
+        </div>
+    </div>
+</div>
