@@ -21,5 +21,10 @@ namespace BookStore.Models
         public bool Active { get; set; }
         public int Price { get; set; }
         public int PriceOffer { get; set; }
+
+       
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public virtual Category Category { get; set; }
     }
 }

@@ -31,10 +31,33 @@ namespace BookStore.Controllers
         }
 
         // GET: Book
-        public ActionResult Gallery()
+        public ActionResult Gallery(string category)
         {
-            var bookList = _bookRepository.Books;
-            return View(bookList);
+            //var bookList = _bookRepository.Books;
+            IEnumerable<Book> books;
+            string _category = category;
+
+            string currentCategory = string.Empty;
+            if (string.IsNullOrEmpty(category))
+            {
+                books = _bookRepository.Books.OrderBy(o => o.Id);
+                currentCategory = "All Books";
+            }
+            else
+            {
+                //if (string.Equals("Comics",category,StringComparison.OrdinalIgnoreCase))
+                //{
+                //    books = _bookRepository.Books.Where(f => f.Category.Name.Equals("Comics")).ToList();
+                //}
+                //else
+                //{
+                //    books = _bookRepository.Books.Where(f => f.Category.Name.Equals("Kids")).ToList();
+                //}
+                books = _bookRepository.Books.Where(f => f.Category.Name.Equals(_category)).OrderBy(f => f.Id);
+                currentCategory = _category;
+            }
+
+            return View(books);
         }
 
         // GET: Book/Details/5
@@ -47,6 +70,7 @@ namespace BookStore.Controllers
         // GET: Book/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 

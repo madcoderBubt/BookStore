@@ -15,6 +15,7 @@ using BookStore.Data.Interface;
 using BookStore.Data.Mocks;
 using BookStore.Data.Repositories;
 using BookStore.Models;
+using Microsoft.AspNetCore.Routing;
 
 namespace BookStore
 {
@@ -42,6 +43,7 @@ namespace BookStore
 
             //Repository Configuration
             services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
 
             //For Shoping Cart
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -75,6 +77,10 @@ namespace BookStore
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "GalleryView",
+                    template: "Book/{action}/{category?}",
+                    defaults: new { Controller = "Book", Action = "Gallery"});
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

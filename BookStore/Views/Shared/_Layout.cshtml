@@ -33,7 +33,8 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Book" asp-action="Gallery">Gallery</a></li>
+                    @await Component.InvokeAsync("CategoryMenu")
+                    @*<li><a asp-area="" asp-controller="Book" asp-action="Gallery">Gallery</a></li>*@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @await Component.InvokeAsync("ShopingCartSummary")

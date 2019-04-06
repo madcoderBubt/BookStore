@@ -72,7 +72,7 @@ ViewData["Title"] = "Gallery";
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(86, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4c9b4c97941a4146adbd45d2aafb3918", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "69da6f3edf424312a54e85b8f4dc0557", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -130,7 +130,7 @@ WriteAttributeValue("", 2508, Url.Content(item.ImgUrl), 2508, 25, false);
             WriteLiteral(" alt=\"\">\r\n                            ");
             EndContext();
             BeginContext(2572, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "608f37644528473d99a257e471c8dd81", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "977fd251752643daa5c400693bce025a", async() => {
                 BeginContext(2610, 11, true);
                 WriteLiteral("Add to Cart");
                 EndContext();
