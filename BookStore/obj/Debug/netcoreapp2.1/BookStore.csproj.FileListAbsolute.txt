@@ -39,3 +39,4 @@ C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Home\_BooksGallery.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\ShopingCartSummary\Default.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CategoryMenu\Default.g.cshtml.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Book\_CategorySideBar.g.cshtml.cs

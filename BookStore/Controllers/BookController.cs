@@ -9,6 +9,8 @@ using BookStore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using BookStore.Models.ViewModels;
+using System.Globalization;
 
 namespace BookStore.Controllers
 {
@@ -16,11 +18,13 @@ namespace BookStore.Controllers
     {
         //private BookStoreContext _bookStoreContext;
         private IBookRepository _bookRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IHostingEnvironment _hostingEnvironment;
-        public BookController(IBookRepository bookRepository, IHostingEnvironment hostingEnvironment)
+        public BookController(IBookRepository bookRepository, IHostingEnvironment hostingEnvironment, ICategoryRepository categoryRepository)
         {
             _bookRepository = bookRepository;
             _hostingEnvironment = hostingEnvironment;
+            _categoryRepository = categoryRepository;
         }
 
         // GET: Book
@@ -35,13 +39,16 @@ namespace BookStore.Controllers
         {
             //var bookList = _bookRepository.Books;
             IEnumerable<Book> books;
-            string _category = category;
 
-            string currentCategory = string.Empty;
+            //text conversion to =>Title Case<=
+            TextInfo text = new CultureInfo("en-us", true).TextInfo;
+            string _category = (category !=null) ? text.ToTitleCase(category):category;
+
+            string _currentCategory = string.Empty;
             if (string.IsNullOrEmpty(category))
             {
                 books = _bookRepository.Books.OrderBy(o => o.Id);
-                currentCategory = "All Books";
+                _currentCategory = "All Books";
             }
             else
             {
@@ -54,10 +61,17 @@ namespace BookStore.Controllers
                 //    books = _bookRepository.Books.Where(f => f.Category.Name.Equals("Kids")).ToList();
                 //}
                 books = _bookRepository.Books.Where(f => f.Category.Name.Equals(_category)).OrderBy(f => f.Id);
-                currentCategory = _category;
+                _currentCategory = _category;
             }
 
-            return View(books);
+            GalleryViewModel galleryView = new GalleryViewModel
+            {
+                currentCategory = _currentCategory,
+                Books = books,
+                Categories = _categoryRepository.Categories.OrderBy(s => s.Name)
+            };
+
+            return View(galleryView);
         }
 
         // GET: Book/Details/5

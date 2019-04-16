@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BookStore.Models.Book>
+﻿@model GalleryViewModel
 
 @{
 ViewData["Title"] = "Gallery";
@@ -15,11 +15,10 @@ ViewData["Title"] = "Gallery";
 <div class="row">
 
     <div class="col-md-3" >
-        <p class="lead">Shop Name</p>
+        <p class="lead">@Model.currentCategory</p>
         <div class="list-group">
-        <a href="#" class="list-group-item">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
+            <a href="~/Book/" class="list-group-item">All Books</a>
+            @await Html.PartialAsync("_CategorySideBar",Model.Categories)
         </div>
     </div>
 
@@ -57,8 +56,7 @@ ViewData["Title"] = "Gallery";
         </div>*@
 
         <div class="row">
-
-            @foreach (var item in Model)
+            @foreach (var item in Model.Books)
             {
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
