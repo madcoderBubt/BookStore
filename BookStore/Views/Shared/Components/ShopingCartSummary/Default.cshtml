@@ -1,6 +1,6 @@
 ﻿@model ShopingCartViewModel
 
-@if (Model.ShopingCart.ShopingCartItems.Count > 0)
+@if (Model.ShopingCart.ShopingCartItems.Count >= 0)
 {
     <li>
         <a asp-controller="ShopingCart">
@@ -10,4 +10,4 @@
             </span>
         </a>
     </li>
-}
+ }

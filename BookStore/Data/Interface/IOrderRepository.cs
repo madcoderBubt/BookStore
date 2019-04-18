@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data.Interface
 {
-    interface IOrderRepository
+    public interface IOrderRepository
     {
         void CreateOrder(Order order);
     }

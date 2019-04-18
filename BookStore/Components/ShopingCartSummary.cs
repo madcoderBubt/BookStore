@@ -17,9 +17,9 @@ namespace BookStore.Models.Components
 
         public IViewComponentResult Invoke()
         {
-            //var items = _shopingCart.GetShopingCartItems();
+            _shopingCart.ShopingCartItems = _shopingCart.GetShopingCartItems();
 
-            _shopingCart.ShopingCartItems = new List<ShopingCartItem> { new ShopingCartItem(), new ShopingCartItem() };
+            //_shopingCart.ShopingCartItems = new List<ShopingCartItem> { new ShopingCartItem(), new ShopingCartItem() };
             var shopingCartVM = new ViewModels.ShopingCartViewModel
             {
                 ShopingCart = _shopingCart,

@@ -6,7 +6,7 @@
     <div class="thumbnail">
         <div class="img-box">
             <img src="@Url.Content(Model.ImgUrl)" alt="">
-            <a asp-action="" class="img-box-cart">Add to Cart</a>
+            <a asp-controller="ShopingCart" asp-action="AddToShopingCart" asp-route-bookId="@Model.Id" class="img-box-cart">Add to Cart</a>
         </div>
         <div class="caption">
             <h4 class="pull-right">$@Model.Price</h4>
