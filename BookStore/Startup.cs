@@ -44,6 +44,7 @@ namespace BookStore
             //Repository Configuration
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             //For Shoping Cart
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -68,7 +69,7 @@ namespace BookStore
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
