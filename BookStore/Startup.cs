@@ -16,6 +16,7 @@ using BookStore.Data.Mocks;
 using BookStore.Data.Repositories;
 using BookStore.Models;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookStore
 {
@@ -40,6 +41,10 @@ namespace BookStore
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            //Identity Configuration
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<BookStoreContext>();
 
             //Repository Configuration
             services.AddTransient<IBookRepository, BookRepository>();
@@ -73,8 +78,8 @@ namespace BookStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseSession();
+            //app.UseIdentity();
 
             app.UseMvc(routes =>
             {

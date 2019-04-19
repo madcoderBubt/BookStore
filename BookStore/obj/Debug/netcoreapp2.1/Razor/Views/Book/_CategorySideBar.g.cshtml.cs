@@ -70,7 +70,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("    ");
             EndContext();
             BeginContext(69, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "deb8c12e195242b8ba87635f61e6892b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bb4f5308f1c4acaa58828334e27be78", async() => {
                 BeginContext(172, 9, false);
 #line 5 "C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\Views\Book\_CategorySideBar.cshtml"
                                                                                                      Write(item.Name);
