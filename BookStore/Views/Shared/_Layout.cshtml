@@ -38,6 +38,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @await Component.InvokeAsync("ShopingCartSummary")
+                    @await Html.PartialAsync("_LoginPartial")
                 </ul>
             </div>
             

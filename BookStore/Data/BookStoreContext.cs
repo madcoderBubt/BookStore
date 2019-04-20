@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BookStore.Data
 {
-    public class BookStoreContext : DbContext /*IdentityDbContext<IdentityUser>*/
+    public class BookStoreContext : IdentityDbContext<IdentityUser> //DbContext
     {
         public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options) { }
 

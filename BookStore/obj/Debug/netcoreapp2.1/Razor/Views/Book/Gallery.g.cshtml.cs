@@ -75,7 +75,7 @@ ViewData["Title"] = "Gallery";
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(68, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0b343576ee5446aa9af84aba19ff76f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b58c2b194d4e4d948ef782c76a01311d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -107,7 +107,7 @@ ViewData["Title"] = "Gallery";
             WriteLiteral("</p>\r\n        <div class=\"list-group\">\r\n            ");
             EndContext();
             BeginContext(352, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667afb75b5614515a58d9144ddd82805", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0c6eada0f26410abafa57de01526ade", async() => {
                 BeginContext(394, 9, true);
                 WriteLiteral("All Books");
                 EndContext();
@@ -161,7 +161,7 @@ WriteAttributeValue("", 2471, Url.Content(item.ImgUrl), 2471, 25, false);
             WriteLiteral(" alt=\"\">\r\n                            ");
             EndContext();
             BeginContext(2535, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3748330ab33744bba9854c4be58238e4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a216518774d246eeabb5e8bf6ee532b1", async() => {
                 BeginContext(2646, 11, true);
                 WriteLiteral("Add to Cart");
                 EndContext();

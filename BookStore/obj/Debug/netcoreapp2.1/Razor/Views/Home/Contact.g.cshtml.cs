@@ -87,7 +87,7 @@ Write(ViewData["Message"]);
             WriteLiteral("</h3>\r\n\r\n<address>\r\n    One Microsoft Way<br />\r\n    Redmond, WA 98052-6399<br />\r\n    <abbr title=\"Phone\">P:</abbr>\r\n    425.555.0100\r\n</address>\r\n\r\n<address>\r\n    <strong>Support:</strong> ");
             EndContext();
             BeginContext(287, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("email", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "21d6dc31e573439cb240f7445272fbdb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("email", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "813848bdcbef4914bc8afb8f2b63fec0", async() => {
             }
             );
             __BookStore_TagHelpers_EmailTagHelper = CreateTagHelper<global::BookStore.TagHelpers.EmailTagHelper>();
@@ -108,7 +108,7 @@ Write(ViewData["Message"]);
             WriteLiteral("<br />\r\n    <strong>Marketing:</strong> ");
             EndContext();
             BeginContext(395, 44, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("email", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e713b429065f48af8f4aeec994e0ae2e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("email", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c940a707f0849eba5124a5cd439b927", async() => {
             }
             );
             __BookStore_TagHelpers_EmailTagHelper = CreateTagHelper<global::BookStore.TagHelpers.EmailTagHelper>();

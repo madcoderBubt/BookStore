@@ -43,8 +43,8 @@ namespace BookStore
             });
 
             //Identity Configuration
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<BookStoreContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<BookStoreContext>();
 
             //Repository Configuration
             services.AddTransient<IBookRepository, BookRepository>();
@@ -79,7 +79,13 @@ namespace BookStore
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-            //app.UseIdentity();
+
+            app.UseAuthentication();
+            /*
+             * Can use instead 
+             * app.UseIdentity();
+             * app.UseCookieAuthentication();
+             */
 
             app.UseMvc(routes =>
             {

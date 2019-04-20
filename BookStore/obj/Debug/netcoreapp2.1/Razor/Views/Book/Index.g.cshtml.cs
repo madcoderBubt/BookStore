@@ -68,7 +68,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(98, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a277084fb69406da7a457ab4a3f5939", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f84bc44c58b04042b30e25fc57efbccc", async() => {
                 BeginContext(121, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

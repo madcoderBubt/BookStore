@@ -42,3 +42,6 @@ C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Book\_CategorySideBar.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Order\Checkout.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Order\CheckoutComplete.g.cshtml.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
