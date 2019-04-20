@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Data.Interface;
 using BookStore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -19,12 +20,14 @@ namespace BookStore.Controllers
             _shopingCart = shopingCart;
         }
 
+        [Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult CheckOut(Order order)
         {
             var items = _shopingCart.GetShopingCartItems();
