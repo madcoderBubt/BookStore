@@ -96,3 +96,7 @@ C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csproj.CopyComplete
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Home\Index.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\_ViewStart.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login1.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutN.cshtml.g.cs

@@ -100,7 +100,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
             WriteLiteral("</a></li>\r\n    <li>\r\n        <a href=\"javascript:document.getElementById(\'logoutForm\').submit()\">Log out</a>\r\n        ");
             EndContext();
             BeginContext(349, 112, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5cc2b47de140415ebc1f2d97a0e7a87b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "139c1051b2e94e4d8e44385fb10ae017", async() => {
                 BeginContext(430, 24, true);
                 WriteLiteral("\r\n            \r\n        ");
                 EndContext();
@@ -139,7 +139,7 @@ else
             WriteLiteral("    <li>");
             EndContext();
             BeginContext(494, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c248c0cd7994e6d848dd378ad4e4296", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66e83fd0aa804cc59db1b385d62a8ac8", async() => {
                 BeginContext(562, 8, true);
                 WriteLiteral("Register");
                 EndContext();
@@ -164,7 +164,7 @@ else
             WriteLiteral("</li>\r\n    <li>");
             EndContext();
             BeginContext(589, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0fa452242d3542d2acb05efec3ff761a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5630734e4d7c4ec1aa8119cc5b5cfcca", async() => {
                 BeginContext(650, 5, true);
                 WriteLiteral("Login");
                 EndContext();

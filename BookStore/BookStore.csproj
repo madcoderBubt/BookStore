@@ -22,6 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\fonts\bicon.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\Material-Design-Iconic-Font.woff2" />
+    <None Include="wwwroot\fonts\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\fonts\Simple-Line-Icons.woff2" />
+    <None Include="wwwroot\fonts\slick.svg" />
     <None Include="wwwroot\js\plugins\bootstrap-datepicker.min.js" />
     <None Include="wwwroot\js\plugins\bootstrap-notify.min.js" />
     <None Include="wwwroot\js\plugins\chart.js" />
@@ -37,6 +44,8 @@
     <None Include="wwwroot\js\plugins\pace.min.js" />
     <None Include="wwwroot\js\plugins\select2.min.js" />
     <None Include="wwwroot\js\plugins\sweetalert.min.js" />
+    <None Include="wwwroot\js\vendor\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\js\vendor\modernizr-3.5.0.min.js" />
   </ItemGroup>
 
 </Project>

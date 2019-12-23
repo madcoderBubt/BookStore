@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home

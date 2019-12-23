@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+@inject SignInManager<IdentityUser> SignInManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="dropdown">
+        <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+        <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+                <form action="Account/Logout" id="logoutForm" method="post">
+                </form>
+            </li>
+        </ul>
+    </li>
+    @*<li>
+        <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+        <form asp-controller="Account" asp-action="Logout" id="logoutForm" method="post">
+            
+        </form>
+    </li>*@
+}
+@*else
+{
+    <li><a id="registerLink" asp-action="Register" asp-controller="Account">Register</a></li>
+    <li><a id="logiLink" asp-action="Login" asp-controller="Account">Login</a></li>
+}*@

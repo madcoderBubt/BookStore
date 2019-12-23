@@ -162,7 +162,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("\r\n                </td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n\r\n    <div class=\"text-right\">\r\n        <div class=\"btn-group \">\r\n            ");
             EndContext();
             BeginContext(2162, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19341b01406e400ba7a94c0cf58a2cde", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43c33d40d2534193a4e8dbad5a65f5f8", async() => {
                 BeginContext(2234, 9, true);
                 WriteLiteral("Check out");
                 EndContext();
@@ -193,7 +193,7 @@ using BookStore.Models.ViewModels;
                     <li>");
             EndContext();
             BeginContext(2534, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be8dc99929e843b396789c3e60a1c970", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "76a85daa8781494faa94a8f9a60e891c", async() => {
                 BeginContext(2609, 9, true);
                 WriteLiteral("Alcoholic");
                 EndContext();
@@ -223,7 +223,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("</li>\r\n                    <li>");
             EndContext();
             BeginContext(2653, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90b7b020dc5641ec94a9690dbcacb5e3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8419c7f83de146d48ef7cfca80169540", async() => {
                 BeginContext(2732, 13, true);
                 WriteLiteral("Non Alcoholic");
                 EndContext();

@@ -40,7 +40,7 @@ namespace BookStore.Controllers
                 if (result.Succeeded)
                 {
                     if (string.IsNullOrEmpty(login.ReturnUrl))
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index","Home", new { area = "Dashboard" });
                     return Redirect(login.ReturnUrl);
                 }
             }
