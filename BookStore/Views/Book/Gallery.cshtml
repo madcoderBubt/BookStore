@@ -67,7 +67,7 @@ ViewData["Title"] = "Gallery";
                         <div class="caption">
                             <h4 class="pull-right">$@item.Price</h4>
                             <h4>
-                                <a href="#">@item.Name</a>
+                                <a asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
                             </h4>
                             <h5>
                                 <a target="_blank" href="http://www.fb.com/shbsovon">@item.Author</a>

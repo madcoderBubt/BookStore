@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.Models.ViewModels;
 using System.Globalization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookStore.Controllers
 {
@@ -84,7 +85,13 @@ namespace BookStore.Controllers
         // GET: Book/Create
         public ActionResult Create()
         {
-            
+            var catagories = _categoryRepository.Categories.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Name
+            }).ToList();
+            ViewData["Catagories"] = catagories;
+
             return View();
         }
 

@@ -88,11 +88,14 @@ namespace BookStore
              */
 
             app.UseMvc(routes =>
-            {
+            {                
                 routes.MapRoute(
                     name: "GalleryView",
                     template: "Book/{action}/{category?}",
                     defaults: new { Controller = "Book", Action = "Gallery"});
+                routes.MapRoute(
+                      name: "MyArea",
+                      template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

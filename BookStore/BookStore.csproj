@@ -12,11 +12,31 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Dashboard\Data\" />
+    <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\plugins\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\js\plugins\bootstrap-notify.min.js" />
+    <None Include="wwwroot\js\plugins\chart.js" />
+    <None Include="wwwroot\js\plugins\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\js\plugins\dropzone.js" />
+    <None Include="wwwroot\js\plugins\fullcalendar.min.js" />
+    <None Include="wwwroot\js\plugins\jquery-ui.custom.min.js" />
+    <None Include="wwwroot\js\plugins\jquery.dataTables.min.js" />
+    <None Include="wwwroot\js\plugins\jquery.vmap.min.js" />
+    <None Include="wwwroot\js\plugins\jquery.vmap.sampledata.js" />
+    <None Include="wwwroot\js\plugins\jquery.vmap.world.js" />
+    <None Include="wwwroot\js\plugins\moment.min.js" />
+    <None Include="wwwroot\js\plugins\pace.min.js" />
+    <None Include="wwwroot\js\plugins\select2.min.js" />
+    <None Include="wwwroot\js\plugins\sweetalert.min.js" />
   </ItemGroup>
 
 </Project>
