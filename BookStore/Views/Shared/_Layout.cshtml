@@ -31,7 +31,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    @await Component.InvokeAsync("CategoryMenu")
+                    <li class="dropdown">
+                        <a asp-controller="Book" asp-action="Gallery"
+                           class="dropdown-toggle" data-toggle="dropdown">Book<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @await Component.InvokeAsync("CategoryMenu")
+                        </ul>
+                    </li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     @*<li><a asp-area="" asp-controller="Book" asp-action="Gallery">Gallery</a></li>*@
@@ -40,7 +46,7 @@
                     @await Component.InvokeAsync("ShopingCartSummary")
                     @await Html.PartialAsync("_LoginPartial")
                 </ul>
-            </div>
+</div>
             
         </div>
     </nav>

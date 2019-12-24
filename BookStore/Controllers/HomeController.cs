@@ -22,10 +22,6 @@ namespace BookStore.Controllers
 
         public IActionResult Index()
         {
-            //var homeVM = new HomeViewModel
-            //{
-            //    PreferredBooks = _bookRepository.Books
-            //};
             IEnumerable<HomeViewModel> homeVM = _categoryRepository.Categories
                 .Where(s => s.Id != 0)
                 .Select(s => new HomeViewModel{

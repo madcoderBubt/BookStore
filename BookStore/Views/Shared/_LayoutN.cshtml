@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home | Bookshop Responsive Bootstrap4 Template</title>
+    <title>@ViewData["Title"] | Bookshop Responsive Bootstrap4 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                         <div class="logo">
-                            <a href="index.html">
+                            <a asp-action="Index" asp-controller="Home">
                                 <img src="~/images/logo/logo.png" alt="logo images">
                             </a>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="col-lg-8 d-none d-lg-block">
                         <nav class="mainmenu__nav">
                             <ul class="meninmenu d-flex justify-content-start">
-                                <li class="drop with--one--item"><a href="index.html">Home</a></li>
+                                <li class="drop with--one--item"><a asp-action="Index" asp-controller="Home">Home</a></li>
                                 <li class="drop">
                                     <a href="#">Shop</a>
                                     <div class="megamenu mega03">
@@ -76,17 +76,13 @@
                                     </div>
                                 </li>
                                 <li class="drop">
-                                    <a href="shop-grid.html">Books</a>
-                                    <div class="megamenu mega03">
-                                        <ul class="item item03">
+                                    <a>Books</a>
+                                    <div class="megamenu mega02">
+                                        <ul class="item item02">
                                             <li class="title">Categories</li>
-                                            <li><a href="shop-grid.html">Biography </a></li>
-                                            <li><a href="shop-grid.html">Business </a></li>
-                                            <li><a href="shop-grid.html">Cookbooks </a></li>
-                                            <li><a href="shop-grid.html">Health & Fitness </a></li>
-                                            <li><a href="shop-grid.html">History </a></li>
+                                            @await Component.InvokeAsync("CategoryMenu")
                                         </ul>
-                                        <ul class="item item03">
+                                        <ul class="item item02">
                                             <li class="title">Customer Favourite</li>
                                             <li><a href="shop-grid.html">Mystery</a></li>
                                             <li><a href="shop-grid.html">Religion & Inspiration</a></li>
@@ -94,61 +90,26 @@
                                             <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
                                             <li><a href="shop-grid.html">Sleeveless</a></li>
                                         </ul>
-                                        <ul class="item item03">
-                                            <li class="title">Collections</li>
-                                            <li><a href="shop-grid.html">Science </a></li>
-                                            <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-                                            <li><a href="shop-grid.html">Self-Improvemen</a></li>
-                                            <li><a href="shop-grid.html">Home & Garden</a></li>
-                                            <li><a href="shop-grid.html">Humor Books</a></li>
-                                        </ul>
                                     </div>
                                 </li>
                                 <li class="drop">
-                                    <a href="shop-grid.html">Kids</a>
-                                    <div class="megamenu mega02">
-                                        <ul class="item item02">
-                                            <li class="title">Top Collections</li>
-                                            <li><a href="shop-grid.html">American Girl</a></li>
-                                            <li><a href="shop-grid.html">Diary Wimpy Kid</a></li>
-                                            <li><a href="shop-grid.html">Finding Dory</a></li>
-                                            <li><a href="shop-grid.html">Harry Potter</a></li>
-                                            <li><a href="shop-grid.html">Land of Stories</a></li>
-                                        </ul>
-                                        <ul class="item item02">
-                                            <li class="title">More For Kids</li>
-                                            <li><a href="shop-grid.html">B&N Educators</a></li>
-                                            <li><a href="shop-grid.html">B&N Kids' Club</a></li>
-                                            <li><a href="shop-grid.html">Kids' Music</a></li>
-                                            <li><a href="shop-grid.html">Toys & Games</a></li>
-                                            <li><a href="shop-grid.html">Hoodies</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="drop">
-                                    <a href="#">Pages</a>
+                                    <a href="#">Help</a>
                                     <div class="megamenu dropdown">
                                         <ul class="item item01">
-                                            <li><a href="about.html">About Page</a></li>
+                                            <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                                            <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                                             <li class="label2">
-                                                <a href="portfolio.html">Portfolio</a>
+                                                <a href="https://github.com/madcoderBubt" target="_blank">Portfolio</a>
                                                 <ul>
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                                    <li><a href="https://madcoderbubt.github.io/MadCoderPersonal/" target="_blank">Personal Site</a></li>
+                                                    <li><a href="https://www.hackerrank.com/MadCoder_BUBT" target="_blank">HackerRank</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="cart.html">Cart Page</a></li>
-                                            <li><a href="checkout.html">Checkout Page</a></li>
-                                            <li><a href="wishlist.html">Wishlist Page</a></li>
-                                            <li><a href="error404.html">404 Page</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
-                                            <li><a href="team.html">Team Page</a></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="drop">
-                                    <a href="blog.html">Blog</a>
+                                    <a href="https://shbsovon.blogspot.com" target="_blank">Blog</a>
                                     <div class="megamenu dropdown">
                                         <ul class="item item01">
                                             <li><a href="blog.html">Blog Page</a></li>
@@ -156,7 +117,6 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -392,7 +352,7 @@
                             <div class="footer__widget footer__menu">
                                 <div class="ft__logo">
                                     <a href="index.html">
-                                        <img src="images/logo/3.png" alt="logo">
+                                        <img src="~/images/logo/3.png" alt="logo">
                                     </a>
                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
                                 </div>
@@ -527,6 +487,7 @@
     <script src="/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="/js/plugins.js"></script>
+    @RenderSection("Scripts", required: false)
     <script src="/js/active.js"></script>
 
 </body>
