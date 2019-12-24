@@ -7,6 +7,7 @@ namespace BookStore.Models.ViewModels
 {
     public class HomeViewModel
     {
+        public string Name { get; set; }
         public IEnumerable<Book> PreferredBooks { get; set; }
     }
 }

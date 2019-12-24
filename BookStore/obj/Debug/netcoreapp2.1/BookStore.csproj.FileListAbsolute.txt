@@ -100,3 +100,4 @@ C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login1.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutN.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index2.cshtml.g.cs

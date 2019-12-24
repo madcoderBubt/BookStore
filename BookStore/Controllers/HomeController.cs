@@ -13,17 +13,28 @@ namespace BookStore.Controllers
     public class HomeController : Controller
     {
         private readonly IBookRepository _bookRepository;
-        public HomeController(IBookRepository bookRepository)
+        private readonly ICategoryRepository _categoryRepository;
+        public HomeController(IBookRepository bookRepository, ICategoryRepository categoryRepository)
         {
             _bookRepository = bookRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public IActionResult Index()
         {
-            var homeVM = new HomeViewModel
-            {
-                PreferredBooks = _bookRepository.Books
-            };
+            //var homeVM = new HomeViewModel
+            //{
+            //    PreferredBooks = _bookRepository.Books
+            //};
+            IEnumerable<HomeViewModel> homeVM = _categoryRepository.Categories
+                .Where(s => s.Id != 0)
+                .Select(s => new HomeViewModel{
+                    Name = s.Name,
+                    PreferredBooks = _bookRepository.Books
+                    .Where(p => p.CategoryId == s.Id)
+                    .OrderByDescending(p=>p.Price)
+                    .Take(2)
+                });
             return View(homeVM);
         }
 
