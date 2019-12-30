@@ -71,7 +71,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("    <li>\r\n        ");
             EndContext();
             BeginContext(92, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb3e2e64c611461696f33b30a8879621", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "570ba20382bf4e1084fa93c67f07ce7a", async() => {
                 BeginContext(171, 9, false);
 #line 7 "C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\Views\Shared\Components\CategoryMenu\Default.cshtml"
                                                                                  Write(item.Name);
@@ -120,7 +120,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("<li class=\"divider\"></li>\r\n<li>");
             EndContext();
             BeginContext(231, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc5c4f3e53474cf0a70214a9640fc889", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f303128940d14ab1b7128b85126cbcab", async() => {
                 BeginContext(256, 9, true);
                 WriteLiteral("All Books");
                 EndContext();

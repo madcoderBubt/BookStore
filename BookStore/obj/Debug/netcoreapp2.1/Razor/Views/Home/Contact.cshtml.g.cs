@@ -81,7 +81,7 @@ using BookStore.Models.ViewModels;
                         ");
             EndContext();
             BeginContext(442, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f21e81c10b04cd7b01b3044445ebc0e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4bd101c870d4945bc70f1a0519589a0", async() => {
                 BeginContext(510, 4, true);
                 WriteLiteral("Home");
                 EndContext();
@@ -133,7 +133,7 @@ using BookStore.Models.ViewModels;
                     ");
             EndContext();
             BeginContext(1536, 1177, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f26c38105fb643d5b69c6ad5d1ec4311", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a97511c3adc4bc89558483a7848e935", async() => {
                 BeginContext(1585, 1121, true);
                 WriteLiteral(@"
                         <div class=""single-contact-form space-between"">
