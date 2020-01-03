@@ -840,7 +840,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("  <h3 class=\"wedget__title\">Filter by price</h3>\r\n                        <div class=\"content-shopby\">\r\n                            <div class=\"price_filter s-filter clear\">\r\n                                ");
             EndContext();
             BeginContext(53539, 813, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "228833b60e514752b35d6f1e4b4c64c3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31e6e0f2a1d044d98c3aef39de1a46f5", async() => {
                 BeginContext(53569, 776, true);
                 WriteLiteral(@"
                                     <div id=""slider-range""></div>
@@ -916,7 +916,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("              </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End main Content -->\r\n<!-- Start Search Popup -->\r\n<div class=\"box-search-content search_active block-bg close__top\">\r\n    ");
             EndContext();
             BeginContext(56606, 322, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27e955cba3214f209feec459031f9412", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e1ba27d5bc24c5981928d2034858746", async() => {
                 BeginContext(56667, 254, true);
                 WriteLiteral("\r\n        <div class=\"field__search\">\r\n            <input type=\"text\" placeholder=\"Search entire store here...\">\r\n            <div class=\"action\">\r\n                <a href=\"#\"><i class=\"zmdi zmdi-search\"></i></a>\r\n            </div>\r\n        </div>\r\n    ");
                 EndContext();
