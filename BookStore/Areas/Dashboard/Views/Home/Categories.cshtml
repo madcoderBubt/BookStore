@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Books";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="tile">
+            <h3 class="tile-title">Categories</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="tile">
+            <h3 class="tile-title">Add Category</h3>
+            <div class="tile-body">
+                <form>
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input class="form-control" type="text" placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control" rows="4" placeholder="Enter your address"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="tile-footer">
+                <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearix"></div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+}

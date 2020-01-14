@@ -76,7 +76,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(72, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "107f71e907574b8db4b97e20cb291e7f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5f4348af006415bb2cce9deb149a656", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -108,7 +108,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("</p>\r\n        <div class=\"list-group\">\r\n            ");
             EndContext();
             BeginContext(356, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "726f7c594e474813a3a47769f37d7cb2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4de60d059b22492482dba5ca9174bcc6", async() => {
                 BeginContext(398, 9, true);
                 WriteLiteral("All Books");
                 EndContext();
@@ -162,7 +162,7 @@ WriteAttributeValue("", 2475, Url.Content(item.ImgUrl), 2475, 25, false);
             WriteLiteral(" alt=\"\">\r\n                            ");
             EndContext();
             BeginContext(2539, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77e44b4eca9d4c02922508530251cb49", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c95d1e39710e4637a0858c739a7f40dc", async() => {
                 BeginContext(2650, 11, true);
                 WriteLiteral("Add to Cart");
                 EndContext();
@@ -210,7 +210,7 @@ WriteAttributeValue("", 2475, Url.Content(item.ImgUrl), 2475, 25, false);
             WriteLiteral("</h4>\r\n                            <h4>\r\n                                ");
             EndContext();
             BeginContext(2882, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6be2649ac8824294817da9b3fb82bd72", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c519e6c9b9954277b6541d747b6538c9", async() => {
                 BeginContext(2931, 9, false);
 #line 70 "C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\Views\Book\GalleryO.cshtml"
                                                                            Write(item.Name);
