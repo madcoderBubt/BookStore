@@ -84,7 +84,7 @@ using BookStore.Models.ViewModels;
                         ");
             EndContext();
             BeginContext(458, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6bbb7d539a04deebd5af39993ee9d86", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0598d9d2f369416c9040acfce0f4b76d", async() => {
                 BeginContext(504, 4, true);
                 WriteLiteral("Home");
                 EndContext();
@@ -868,7 +868,7 @@ using BookStore.Models.ViewModels;
                                 ");
             EndContext();
             BeginContext(53540, 813, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "42933765d8cc42d2a49783b8c2949d06", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fcd4a80aced64f00897d823c1b66cd4c", async() => {
                 BeginContext(53570, 776, true);
                 WriteLiteral(@"
                                     <div id=""slider-range""></div>
@@ -944,7 +944,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("              </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End main Content -->\r\n<!-- Start Search Popup -->\r\n<div class=\"box-search-content search_active block-bg close__top\">\r\n    ");
             EndContext();
             BeginContext(56607, 322, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c7c211cf47641afb8a8f8eb2706affb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "616fec5564424436998c9039b7bd3161", async() => {
                 BeginContext(56668, 254, true);
                 WriteLiteral("\r\n        <div class=\"field__search\">\r\n            <input type=\"text\" placeholder=\"Search entire store here...\">\r\n            <div class=\"action\">\r\n                <a href=\"#\"><i class=\"zmdi zmdi-search\"></i></a>\r\n            </div>\r\n        </div>\r\n    ");
                 EndContext();

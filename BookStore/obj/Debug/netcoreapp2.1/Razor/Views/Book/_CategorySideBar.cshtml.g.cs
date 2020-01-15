@@ -69,7 +69,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("    <li>\r\n        ");
             EndContext();
             BeginContext(83, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d7d389592bc4d6bba7695b30b6dcb75", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55f55950320c48968e0a21f59b0bd38b", async() => {
                 BeginContext(161, 16, true);
                 WriteLiteral("<span>(3)</span>");
                 EndContext();
