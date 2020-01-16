@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Data.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace BookStore.Areas.Dashboard.Controllers
 {
     // Dashboard/..
     [Area("Dashboard")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryRepository _categoryRepo;
@@ -21,17 +23,8 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Dashboard/Category/GetData
         public ActionResult GetData()
         {
-            //List<Models.Category> categories = _categoryRepo.Categories.ToList();
-            List<Models.Category> categories = new List<Models.Category>
-            {
-                new Models.Category{ Name="Hello", Description="xxx",Id = 1},
-                new Models.Category{ Name="Hello", Description="xxx",Id = 2},
-                new Models.Category{ Name="Hello", Description="xxx",Id = 3},
-                new Models.Category{ Name="Hello", Description="xxx",Id = 4},
-            };
+            List<Models.Category> categories = _categoryRepo.Categories.ToList();
             return Json(new { data = categories });
-            ////return new JsonResult(categories);
-            //return View(categories);
         }
 
         // GET: Category/Details/5
@@ -49,17 +42,15 @@ namespace BookStore.Areas.Dashboard.Controllers
         // POST: Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult _AddOrEdit(Models.Category category)
         {
-            try
+            if (_categoryRepo.AddEdit(category))
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(GetData));
+                return Json(new { success = true, message = "Saved Successfully" });
             }
-            catch
+            else
             {
-                return View();
+                return Json(new { success = false, message = "Saved Unsuccessfull" });
             }
         }
 

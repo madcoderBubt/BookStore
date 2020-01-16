@@ -12,5 +12,6 @@ namespace BookStore.Data.Interface
         IEnumerable<Category> Categories { get; }
 
         Category GetCategoryById(int categoryId);
+        bool AddEdit(Category category);
     }
 }

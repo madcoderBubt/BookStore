@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Category>
+﻿@model Category
 @{
     ViewData["Title"] = "Books";
 }
@@ -16,14 +16,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.Id</td>
-                            <td>@item.Name</td>
-                            <td>@item.Description</td>
-                        </tr>
-                    }
                 </tbody>
             </table>
         </div>
@@ -32,52 +24,89 @@
         <div class="tile">
             <h3 class="tile-title">Add Category</h3>
             <div class="tile-body">
-                <form>
+                <form action="/Dashboard/Category/_AddOrEdit"  method="post" id="form1" onsubmit="submitForm(this)">
+                    <input type="hidden" asp-for="Id" value="0" />
                     <div class="form-group">
                         <label class="control-label">Name</label>
-                        <input class="form-control" type="text" placeholder="Enter full name">
+                        <input class="form-control" asp-for="Name" type="text" placeholder="Enter full name">
                     </div>
                     <div class="form-group">
                         <label class="control-label">Description</label>
-                        <textarea class="form-control" rows="4" placeholder="Enter your address"></textarea>
+                        <textarea class="form-control" asp-for="Description" rows="4" placeholder="Enter your address"></textarea>
                     </div>
                 </form>
             </div>
             <div class="tile-footer">
-                <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                <button class="btn btn-primary" type="submit" form="form1"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
             </div>
         </div>
     </div>
     <div class="clearix"></div>
 </div>
 
-@*<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />*@
 @section scripts{
     <!-- Data table plugin-->
     <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">$('#categoryData').DataTable();</script>
+    @*<script type="text/javascript">$('#categoryData').DataTable();</script>*@
     <script type="text/javascript">
-        //var dataTable;
-        //$(document).ready(function () {
-        //    dataTable = $('#categoryData').DataTable({
-        //        ajax: {
-        //            url: "Dashboard/Category/GetData",
-        //            type: "Get",
-        //            datatype: "json",
-        //        },
-        //        columns: [
-        //            { data: "Id" },
-        //            { data: "Name" },
-        //            { data: "Description" },
-        //        ],
-        //        language: {
-        //            infoempty: "No records found!",
-        //            emptyTable: "No Data Found! Please Click <b>Add New</b> to add.",
-        //        },
+        var dataTable;
+        $(document).ready(function () {
+            dataTable = $('#categoryData').DataTable({
+                ajax: {
+                    url: "/Dashboard/Category/GetData",
+                    type: "Get",
+                    contentType: "application/Json",
+                    dataType: "Json"
+                },
+                columns: [
+                    { data: "id" },
+                    { data: "name" },
+                    { data: "description" },
+                ],
+                language: {
+                    infoempty: "No records found!",
+                    emptyTable: "No Data Found! Please Click <b>Add New</b> to add.",
+                },
+            });
+        });
 
-        //    });
-        //});
+        //For Refresh DataTable while closing Popup Dialog
+        function submitForm(form1) {
+            alert(form1.action);
+            $(form1).submit(function (e) {
+                e.preventDefault();
+                var url = form1.action;
+                var method = form1.method;
+                
+            });
+            return this;
+            //$(form1).submit(function (e) {
+            //    e.preventDefault();
+
+            //    var url = "/Dashboard/Category/_AddOrEdit";
+            //    alert(url);
+
+            //    $.ajax({
+            //        type: "POST",
+            //        url: url,
+            //        data: $(form1).serialize(),
+            //        dataType: "json",
+            //        contentType: 'application/json',
+            //        success: function (data) {
+            //            if (data.success) {
+            //                dataTable.ajax.reload();
+            //                alert(data.message);
+            //                //$.notify(data.message, {
+            //                //    globalPosition: "top center",
+            //                //    className: "success",
+            //                //});
+            //            }
+            //        }
+            //    });
+            //    //return false;
+            //});           
+        }
 
         if (document.location.hostname == 'pratikborsadiya.in') {
             (function (i, s, o, g, r, a, m) {

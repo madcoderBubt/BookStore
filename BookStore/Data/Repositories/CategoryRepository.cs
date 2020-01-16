@@ -18,6 +18,29 @@ namespace BookStore.Data.Repositories
 
         public IEnumerable<Category> Categories => _storeContext.Categories;
 
+        public bool AddEdit(Category category)
+        {
+            try
+            {
+                if (category.Id == 0)
+                {
+                    _storeContext.Add(category);
+                    _storeContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    _storeContext.Entry(category).State = EntityState.Modified;
+                    _storeContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public Category GetCategoryById(int categoryId) => _storeContext.Categories
             .FirstOrDefault(c => c.Id == categoryId);
     }

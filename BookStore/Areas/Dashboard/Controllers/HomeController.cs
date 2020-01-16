@@ -31,8 +31,9 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Books
         public IActionResult Categories()
         {
-            var listItem = _categoryRepo.Categories;
-            return View(listItem);
+            //var listItem = _categoryRepo.Categories;
+            //return View(listItem);
+            return View();
         }
 
         // GET: Books
