@@ -41,9 +41,14 @@ namespace BookStore.Areas.Dashboard.Controllers
 
         // POST: Category/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public IActionResult _AddOrEdit(Models.Category category)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (_categoryRepo.AddEdit(category))
             {
                 return Json(new { success = true, message = "Saved Successfully" });

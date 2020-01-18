@@ -1,6 +1,8 @@
 ﻿@model Category
 @{
     ViewData["Title"] = "Books";
+    //var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+    //string objJson = serializer.Serialize(Model);
 }
 
 <div class="row">
@@ -24,7 +26,7 @@
         <div class="tile">
             <h3 class="tile-title">Add Category</h3>
             <div class="tile-body">
-                <form action="/Dashboard/Category/_AddOrEdit"  method="post" id="form1" onsubmit="submitForm(this)">
+                <form id="form1">
                     <input type="hidden" asp-for="Id" value="0" />
                     <div class="form-group">
                         <label class="control-label">Name</label>
@@ -37,7 +39,7 @@
                 </form>
             </div>
             <div class="tile-footer">
-                <button class="btn btn-primary" type="submit" form="form1"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                <button class="btn btn-primary" type="button" onclick="submitForm('#form1')"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
             </div>
         </div>
     </div>
@@ -73,39 +75,27 @@
 
         //For Refresh DataTable while closing Popup Dialog
         function submitForm(form1) {
-            alert(form1.action);
-            $(form1).submit(function (e) {
-                e.preventDefault();
-                var url = form1.action;
-                var method = form1.method;
-                
+            var obj = $(form1).serialize();
+
+            $.ajax({
+                type: "post",
+                url: "/Dashboard/Category/_AddOrEdit",
+                data: obj,
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        dataTable.ajax.reload();
+                        alert(data.message);
+                        //$.notify(data.message, {
+                        //    globalPosition: "top center",
+                        //    className: "success",
+                        //});
+                    } else {
+                        alert("sorry");
+                    }
+                }
             });
-            return this;
-            //$(form1).submit(function (e) {
-            //    e.preventDefault();
-
-            //    var url = "/Dashboard/Category/_AddOrEdit";
-            //    alert(url);
-
-            //    $.ajax({
-            //        type: "POST",
-            //        url: url,
-            //        data: $(form1).serialize(),
-            //        dataType: "json",
-            //        contentType: 'application/json',
-            //        success: function (data) {
-            //            if (data.success) {
-            //                dataTable.ajax.reload();
-            //                alert(data.message);
-            //                //$.notify(data.message, {
-            //                //    globalPosition: "top center",
-            //                //    className: "success",
-            //                //});
-            //            }
-            //        }
-            //    });
-            //    //return false;
-            //});           
         }
 
         if (document.location.hostname == 'pratikborsadiya.in') {
