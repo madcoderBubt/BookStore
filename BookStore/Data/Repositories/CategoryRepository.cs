@@ -41,6 +41,23 @@ namespace BookStore.Data.Repositories
             }
         }
 
+        public bool Delete(int id)
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    _storeContext.Remove(_storeContext.Categories.Find(id));
+                    _storeContext.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public Category GetCategoryById(int categoryId) => _storeContext.Categories
             .FirstOrDefault(c => c.Id == categoryId);
     }

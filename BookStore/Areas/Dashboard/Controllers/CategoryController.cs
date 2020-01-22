@@ -27,18 +27,6 @@ namespace BookStore.Areas.Dashboard.Controllers
             return Json(new { data = categories });
         }
 
-        // GET: Category/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Category/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: Category/Create
         [HttpPost]
         //[ValidateAntiForgeryToken]
@@ -59,49 +47,17 @@ namespace BookStore.Areas.Dashboard.Controllers
             }
         }
 
-        // GET: Category/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Category/Edit/5
+        // GET: Dashboard/Category/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(GetData));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Category/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            if (_categoryRepo.Delete(id))
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(GetData));
+                return Json(new { success = true, message = "Deleted Successfully" });
             }
-            catch
+            else
             {
-                return View();
+                return Json(new { success = false, message = "Deleted Failed" });
             }
         }
     }

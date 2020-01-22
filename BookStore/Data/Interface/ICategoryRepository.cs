@@ -13,5 +13,6 @@ namespace BookStore.Data.Interface
 
         Category GetCategoryById(int categoryId);
         bool AddEdit(Category category);
+        bool Delete(int id);
     }
 }
