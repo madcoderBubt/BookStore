@@ -123,7 +123,7 @@ namespace BookStore.Controllers
                         //throw new Exception("File Not found");
                     }
 
-                    _bookRepository.Add(book);
+                    _bookRepository.AddOrEdit(book);
                 }
 
                 return RedirectToAction(nameof(Index));

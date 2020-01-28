@@ -3,42 +3,51 @@
     Layout = null;
 }
 
-    <form>
+    <form method="post" onsubmit="return submitForm(this)">
+        @if (Model is null)
+        {
+            <input type="hidden" asp-for="Id" value="0"/>
+        }
+        else
+        {
+            <input type="hidden" asp-for="Id" />
+        }
         <div class="form-group">
-            <label class="control-label">Name</label>
-            <input class="form-control" type="text" placeholder="Enter full name">
+            <label asp-for="Category" class="control-label"></label>
+            <select asp-for="CategoryId" asp-items="@ViewData["Catagories"] as List<SelectListItem>" class="form-control">
+            </select>
         </div>
         <div class="form-group">
-            <label class="control-label">Email</label>
-            <input class="form-control" type="email" placeholder="Enter email address">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" type="text" placeholder="Enter full name">
         </div>
         <div class="form-group">
-            <label class="control-label">Address</label>
-            <textarea class="form-control" rows="4" placeholder="Enter your address"></textarea>
+            <label asp-for="Author" class="control-label"></label>
+            <input asp-for="Author" class="form-control" placeholder="Enter email address">
         </div>
         <div class="form-group">
-            <label class="control-label">Gender</label>
+            <label asp-for="Details" class="control-label"></label>
+            <textarea asp-for="Details" class="form-control" rows="4" placeholder="Enter your address"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImgFile" class="control-label"></label>
+            <input asp-for="ImgFile" class="form-control" type="file">
+            <input type="hidden" asp-for="ImgUrl" />
+        </div>
+        <div class="form-group">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="gender">Male
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="gender">Female
+                    <input asp-for="Active" class="form-check-input" type="checkbox"> Active
                 </label>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">Identity Proof</label>
-            <input class="form-control" type="file">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" rows="4" placeholder="Enter your address">
         </div>
         <div class="form-group">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox">I accept the terms and conditions
-                </label>
-            </div>
+            <label asp-for="PriceOffer" class="control-label"></label>
+            <input asp-for="PriceOffer" class="form-control" rows="4" placeholder="Enter your address">
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit" />

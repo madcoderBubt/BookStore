@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Book>
+﻿@*@model IEnumerable<Book>*@
 @{
     ViewData["Title"] = "Books";
 }
@@ -20,12 +20,14 @@
                                 <th>Author</th>
                                 <th>Details</th>
                                 <th>Price</th>
+                                <th>Price Offer</th>
                                 <th>Category</th>
+                                <th>Image Url</th>
                                 <th>Buttons</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
+                            @*@foreach (var item in Model)
                             {
                                 <tr>
                                     <td>@item.Id</td>
@@ -41,7 +43,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            }
+                            }*@
                         </tbody>
                     </table>
                 </div>
@@ -70,7 +72,43 @@
     <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         var popup;
-        var dataTable = $('#sampleTable').DataTable();
+        var dataTable /*= $('#sampleTable').DataTable()*/;
+
+        $(document).ready(function () {
+            dataTable = $('#sampleTable').DataTable({
+                ajax: {
+                    url: "/Dashboard/Book/GetData",
+                    type: "Get",
+                    contentType: "application/Json",
+                    dataType: "Json"
+                },
+                columns: [
+                    { data: "id" },
+                    { data: "Name" },
+                    { data: "Author" },
+                    { data: "Details" },
+                    { data: "Price" },
+                    { data: "PriceOffer" },
+                    { data: "Category.Name" },
+                    { data: "ImgUrl" },
+                    {
+                        data: "id",
+                        "render": function (data) {
+                            return "<div class='btn-group-sm' style='width:90px'>"
+                                    +"<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/_AddOrEdit/"+data+"') href='#'><i class='fa fa-lg fa-edit'></i></a>"
+                                    +"<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
+                        },
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                language: {
+                    infoEmpty: "No records found!",
+                    emptyTable: "No Data Found! Please Click <b>Add New</b> to add.",
+                },
+                
+            });
+        });
 
         //For Pop Up Dialog => Add or Edit Dialog
         function PopupForm(url) {
@@ -91,6 +129,38 @@
                     });
                 });
         }
+
+        //For Refresh DataTable while closing Popup Dialog
+        function submitForm(form1) {
+            var obj = $(form1).serialize();
+
+            $.ajax({
+                type: "post",
+                url: "/Dashboard/Book/_AddOrEdit",
+                data: obj,
+                dataType: "json",
+                //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        popup.dialog("close");
+                        dataTable.ajax.reload();
+                        //alert(data.message);
+                        $.notify(data.message, {
+                            globalPosition: "top center",
+                            className: "success",
+                        });
+                    } else {
+                        $.notify(data.message, {
+                            globalPosition: "top center",
+                            className: "warning",
+                        });
+                    }
+                }
+            });
+
+            return false;
+        }
+
     </script>
 
 

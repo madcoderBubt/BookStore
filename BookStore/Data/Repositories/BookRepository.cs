@@ -22,11 +22,32 @@ namespace BookStore.Data.Repositories
         public Book GetBookById(int id) => _bookStoreContext.Books.FirstOrDefault(p => p.Id == id);
         public Category GetCategory(int id) => _bookStoreContext.Books.FirstOrDefault(p => p.Id == id).Category;
 
-        public void Add(Book book)
+        public bool AddOrEdit(Book book)
         {
-            _bookStoreContext.Add(book);
-            _bookStoreContext.SaveChanges();
+            try
+            {
+                if (book.Id == 0)
+                {
+                    _bookStoreContext.Add(book);
+                    _bookStoreContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    _bookStoreContext.Entry(book).State = EntityState.Modified;
+                    _bookStoreContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

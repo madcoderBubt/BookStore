@@ -13,13 +13,13 @@ namespace BookStore.Areas.Dashboard.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly ICategoryRepository _categoryRepo;
-        private readonly IBookRepository _bookRepo;
-        public HomeController(ICategoryRepository categoryRepository,IBookRepository bookRepository)
-        {
-            _categoryRepo = categoryRepository;
-            _bookRepo = bookRepository;
-        }
+        //private readonly ICategoryRepository _categoryRepo;
+        //private readonly IBookRepository _bookRepo;
+        //public HomeController(ICategoryRepository categoryRepository,IBookRepository bookRepository)
+        //{
+        //    _categoryRepo = categoryRepository;
+        //    _bookRepo = bookRepository;
+        //}
 
         // GET: Home
         public ActionResult Index()
@@ -39,8 +39,8 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Books
         public IActionResult Books()
         {
-            var listItem = _bookRepo.Books;
-            return View(listItem);
+            //var listItem = _bookRepo.Books;
+            return View();
         }
     }
 }

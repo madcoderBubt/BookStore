@@ -11,6 +11,7 @@ namespace BookStore.Data.Interface
         IEnumerable<Book> Books { get; }
 
         Book GetBookById(int id);
-        void Add(Book book);
+        bool AddOrEdit(Book book);
+        bool Delete(int id);
     }
 }
