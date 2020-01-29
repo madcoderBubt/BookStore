@@ -105,4 +105,4 @@ C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Home\Categories.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\_ViewImports.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Home\Books.cshtml.g.cs
-C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Book\_AddOrEdit.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Book\AddOrEdit.cshtml.g.cs

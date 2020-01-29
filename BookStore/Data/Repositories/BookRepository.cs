@@ -24,6 +24,11 @@ namespace BookStore.Data.Repositories
 
         public bool AddOrEdit(Book book)
         {
+            if (book == null)
+            {
+                return false;
+            }
+
             try
             {
                 if (book.Id == 0)
@@ -48,7 +53,15 @@ namespace BookStore.Data.Repositories
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var book = GetBookById(id);
+            if (book != null)
+            {
+                _bookStoreContext.Remove(book);
+                _bookStoreContext.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
     }
 }

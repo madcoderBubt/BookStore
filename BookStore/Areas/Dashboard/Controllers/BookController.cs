@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using BookStore.Data.Interface;
+﻿using BookStore.Data.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 
 namespace BookStore.Areas.Dashboard.Controllers
 {
@@ -35,8 +33,9 @@ namespace BookStore.Areas.Dashboard.Controllers
             var lists = JsonConvert.SerializeObject(
                 listItem,
                 Formatting.Indented,
-                new JsonSerializerSettings() {
-                    ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });
             return Content(lists, "application/json");
         }
@@ -75,11 +74,13 @@ namespace BookStore.Areas.Dashboard.Controllers
                     if (book != null && book.ImgFile != null)
                     {
                         //Destination FileName
-                        var fileName = Path.Combine(_hostingEnvironment.WebRootPath + "/images/", Path.GetFileName(book.ImgFile.FileName));
-                        FileStream fileStream = new FileStream(fileName, FileMode.Create);
-                        //Coping File to Server
-                        book.ImgFile.CopyTo(fileStream);
-                        book.ImgUrl = "/images/" + Path.GetFileName(fileName);
+                        var fileName = Path.Combine(_hostingEnvironment.WebRootPath + "/images/books/", book.Id + Path.GetExtension(book.ImgFile.FileName));
+                        //FileStream fileStream = new FileStream(fileName, FileMode.Create);
+                        using (var strm = System.IO.File.Create(fileName))
+                        {
+                            book.ImgFile.CopyTo(strm);
+                        }                        
+                        book.ImgUrl = "/images/books/" + book.Id + Path.GetExtension(fileName);
                     }
 
                     if (_bookRepo.AddOrEdit(book))
@@ -92,11 +93,11 @@ namespace BookStore.Areas.Dashboard.Controllers
                     }
                 }
 
-                return Json(new { success = false, message = "Failed" });
+                return Json(new { success = false, message = "Model state is invalid!" });
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return Json(new { success = false, message = e.Message });
+                //return Json(new { success = false, message = e.Message });
                 throw;
             }
         }

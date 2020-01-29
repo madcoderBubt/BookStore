@@ -8,7 +8,7 @@
         <div class="tile">
             <div class="tile-title-w-btn">
                 <h3 class="title">All Items</h3>
-                <p><a class="btn btn-primary icon-btn" href="#" onclick="PopupForm('Dashboard/Book/_AddOrEdit')"><i class="fa fa-plus"></i>Add Item	</a></p>
+                <p><a class="btn btn-primary icon-btn" href="#" onclick="PopupForm('Dashboard/Book/AddOrEdit')"><i class="fa fa-plus"></i>Add Item	</a></p>
             </div>
             <div class="tile-body">
                 <div class="table-responsive">
@@ -21,7 +21,7 @@
                                 <th>Details</th>
                                 <th>Price</th>
                                 <th>Image Url</th>
-                                @*<th>Buttons</th>*@
+                                <th>Buttons</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,10 +74,14 @@
 
         $(document).ready(function () {
             dataTable = $('#sampleTable').DataTable({
+                //processing: true,
+                //serverSide: true,
                 ajax: {
                     url: "/Dashboard/Book/GetData",
                     type: "Get",
                     contentType: "application/Json",
+                    dataType: "Json",
+                    dataSrc: ""
                 },
                 columns: [
                     { data: "Id" },
@@ -86,16 +90,16 @@
                     { data: "Details" },
                     { data: "Price" },
                     { data: "ImgUrl" },
-                    //{
-                    //    data: "Id",
-                    //    "render": function (data) {
-                    //        return "<div class='btn-group-sm' style='width:90px'>"
-                    //                +"<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/_AddOrEdit/"+data+"') href='#'><i class='fa fa-lg fa-edit'></i></a>"
-                    //                +"<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
-                    //    },
-                    //    orderable: false,
-                    //    searchable: false
-                    //}
+                    {
+                        data: "Id",
+                        "render": function (data) {
+                            return "<div class='btn-group-sm' style='width:90px'>"
+                                    +"<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/AddOrEdit/"+data+"') href='#'><i class='fa fa-lg fa-edit'></i></a>"
+                                    +"<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
+                        },
+                        orderable: false,
+                        searchable: false
+                    }
                 ],
                 language: {
                     infoEmpty: "No records found!",
@@ -127,14 +131,16 @@
 
         //For Refresh DataTable while closing Popup Dialog
         function submitForm(form1) {
-            var obj = $(form1).serialize();
+            //var obj = $(form1).serialize();
+            var obj = new FormData(form1);
 
             $.ajax({
                 type: "post",
-                url: "/Dashboard/Book/_AddOrEdit",
+                url: "/Dashboard/Book/AddOrEdit",
                 data: obj,
                 dataType: "json",
-                //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                contentType: false,
+                processData: false,
                 success: function (data) {
                     if (data.success) {
                         popup.dialog("close");
