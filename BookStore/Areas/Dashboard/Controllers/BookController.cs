@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace BookStore.Areas.Dashboard.Controllers
 {
@@ -30,11 +31,14 @@ namespace BookStore.Areas.Dashboard.Controllers
         //Get: /Dashboard/Book/GetData
         public IActionResult GetData()
         {
-            var listItem = _bookRepo.Books.ToList();
-
-            
-
-            return Json(new { data = listItem });
+            var listItem = _bookRepo.Books;
+            var lists = JsonConvert.SerializeObject(
+                listItem,
+                Formatting.Indented,
+                new JsonSerializerSettings() {
+                    ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                });
+            return Content(lists, "application/json");
         }
 
         //Get: /Dashboard/Book/_AddOrEdit

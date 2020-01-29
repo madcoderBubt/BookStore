@@ -20,10 +20,8 @@
                                 <th>Author</th>
                                 <th>Details</th>
                                 <th>Price</th>
-                                <th>Price Offer</th>
-                                <th>Category</th>
                                 <th>Image Url</th>
-                                <th>Buttons</th>
+                                @*<th>Buttons</th>*@
                             </tr>
                         </thead>
                         <tbody>
@@ -80,27 +78,24 @@
                     url: "/Dashboard/Book/GetData",
                     type: "Get",
                     contentType: "application/Json",
-                    dataType: "Json"
                 },
                 columns: [
-                    { data: "id" },
+                    { data: "Id" },
                     { data: "Name" },
                     { data: "Author" },
                     { data: "Details" },
                     { data: "Price" },
-                    { data: "PriceOffer" },
-                    { data: "Category.Name" },
                     { data: "ImgUrl" },
-                    {
-                        data: "id",
-                        "render": function (data) {
-                            return "<div class='btn-group-sm' style='width:90px'>"
-                                    +"<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/_AddOrEdit/"+data+"') href='#'><i class='fa fa-lg fa-edit'></i></a>"
-                                    +"<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
-                        },
-                        orderable: false,
-                        searchable: false
-                    }
+                    //{
+                    //    data: "Id",
+                    //    "render": function (data) {
+                    //        return "<div class='btn-group-sm' style='width:90px'>"
+                    //                +"<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/_AddOrEdit/"+data+"') href='#'><i class='fa fa-lg fa-edit'></i></a>"
+                    //                +"<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
+                    //    },
+                    //    orderable: false,
+                    //    searchable: false
+                    //}
                 ],
                 language: {
                     infoEmpty: "No records found!",

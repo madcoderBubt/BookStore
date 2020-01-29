@@ -16,7 +16,7 @@ namespace BookStore.Data.Repositories
             _bookStoreContext = storeContext;
         }
 
-        public IEnumerable<Book> Books => _bookStoreContext.Books.Include(f => f.Category);
+        public IEnumerable<Book> Books => _bookStoreContext.Books.Include(f=>f.Category);
         //public Book Book => _bookStoreContext;
 
         public Book GetBookById(int id) => _bookStoreContext.Books.FirstOrDefault(p => p.Id == id);
@@ -42,6 +42,7 @@ namespace BookStore.Data.Repositories
             catch
             {
                 return false;
+                throw;
             }
         }
 
