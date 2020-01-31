@@ -11,7 +11,7 @@
         else
         {
             <input type="hidden" asp-for="Id" />
-        }
+        } 
         <div class="form-group">
             <label asp-for="Category" class="control-label"></label>
             <select asp-for="CategoryId" asp-items="@ViewData["Catagories"] as List<SelectListItem>" class="form-control">
@@ -32,7 +32,7 @@
         <div class="form-group">
             <label asp-for="ImgFile" class="control-label"></label>
             <input asp-for="ImgFile" class="form-control" type="file">
-            <input type="hidden" asp-for="ImgUrl" />
+            <input type="hidden" asp-for="ImgUrl" />@( (Model != null) ? Model.ImgUrl : "")
         </div>
         <div class="form-group">
             <div class="form-check">

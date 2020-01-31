@@ -20,28 +20,28 @@
                                 <th>Author</th>
                                 <th>Details</th>
                                 <th>Price</th>
-                                <th>Image Url</th>
+                                <th>Category</th>
                                 <th>Buttons</th>
                             </tr>
                         </thead>
                         <tbody>
                             @*@foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.Id</td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Author</td>
-                                    <td>@item.Details</td>
-                                    <td>@item.Price</td>
-                                    <td>@item.Category.Name</td>
-                                    <td>
-                                        <div class="btn-group-sm" style="width:90px">
-                                            <a class="btn btn-primary" onclick="PopupForm('Dashboard/Book/_AddOrEdit/@item.Id')" href="#"><i class="fa fa-lg fa-edit"></i></a>
-                                            <a class="btn btn-danger" href="#" onclick=""><i class="fa fa-lg fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }*@
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Author</td>
+                                        <td>@item.Details</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.Category.Name</td>
+                                        <td>
+                                            <div class="btn-group-sm" style="width:90px">
+                                                <a class="btn btn-primary" onclick="PopupForm('Dashboard/Book/_AddOrEdit/@item.Id')" href="#"><i class="fa fa-lg fa-edit"></i></a>
+                                                <a class="btn btn-danger" href="#" onclick=""><i class="fa fa-lg fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }*@
                         </tbody>
                     </table>
                 </div>
@@ -55,7 +55,7 @@
 @section style{
     <link href="~/css/plugins/jquery-ui.min.css" rel="stylesheet" />
     <style>
-        .ui-dialog{
+        .ui-dialog {
             top: 50px;
             left: auto;
         }
@@ -68,9 +68,9 @@
     <!-- Data table plugin-->
     <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/bootstrap-notify.min.js"></script>
     <script type="text/javascript">
-        var popup;
-        var dataTable /*= $('#sampleTable').DataTable()*/;
+        var popup, dataTable /*= $('#sampleTable').DataTable()*/;
 
         $(document).ready(function () {
             dataTable = $('#sampleTable').DataTable({
@@ -89,13 +89,13 @@
                     { data: "Author" },
                     { data: "Details" },
                     { data: "Price" },
-                    { data: "ImgUrl" },
+                    { data: "Category.Name" },
                     {
                         data: "Id",
                         "render": function (data) {
-                            return "<div class='btn-group-sm' style='width:90px'>"
-                                    +"<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/AddOrEdit/"+data+"') href='#'><i class='fa fa-lg fa-edit'></i></a>"
-                                    +"<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
+                            return "<div class='btn-group' style='width:90px'>"
+                                + "<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/AddOrEdit/" + data + "') href='#'><i class='fa fa-lg fa-edit'></i></a>"
+                                + "<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
                         },
                         orderable: false,
                         searchable: false
@@ -105,33 +105,33 @@
                     infoEmpty: "No records found!",
                     emptyTable: "No Data Found! Please Click <b>Add New</b> to add.",
                 },
-                
+
             });
         });
 
         //For Pop Up Dialog => Add or Edit Dialog
         function PopupForm(url) {
-            var formDiv = $('<div>');
+            var formDiv = $('<div/>');
             $.get("https://localhost:44371/" + url)
                 .done(function (response) {
                     formDiv.html(response);
+
                     popup = formDiv.dialog({
-                        modal: true,
+                        //modal: true,
                         autoOpen: true,
                         resizable: false,
                         title: "Add or Update Book",
                         width: 500,
                         height: 600,
                         close: function () {
-                            popup.dialog("destroy").remove();
+                            $(popup).dialog("destroy").remove();
                         }
-                    });
+                    });                    
                 });
         }
 
         //For Refresh DataTable while closing Popup Dialog
         function submitForm(form1) {
-            //var obj = $(form1).serialize();
             var obj = new FormData(form1);
 
             $.ajax({
@@ -143,9 +143,9 @@
                 processData: false,
                 success: function (data) {
                     if (data.success) {
-                        popup.dialog("close");
+                        $(popup).dialog('close');
                         dataTable.ajax.reload();
-                        //alert(data.message);
+
                         $.notify(data.message, {
                             globalPosition: "top center",
                             className: "success",
@@ -163,8 +163,6 @@
         }
 
     </script>
-
-
 
     <!-- Google analytics script-->
     <script type="text/javascript">

@@ -1,8 +1,11 @@
 ﻿using BookStore.Data.Interface;
 using BookStore.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,9 +14,11 @@ namespace BookStore.Data.Repositories
     public class BookRepository : IBookRepository
     {
         private BookStoreContext _bookStoreContext;
-        public BookRepository(BookStoreContext storeContext)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public BookRepository(BookStoreContext storeContext, IHostingEnvironment hosting)
         {
             _bookStoreContext = storeContext;
+            _hostingEnvironment = hosting;
         }
 
         public IEnumerable<Book> Books => _bookStoreContext.Books.Include(f=>f.Category);
@@ -31,6 +36,23 @@ namespace BookStore.Data.Repositories
 
             try
             {
+                if (book != null && book.ImgFile != null)
+                {
+                    string number = string.Format(
+                        CultureInfo.CurrentCulture,
+                        "{0:d9}",
+                        (DateTime.Now.Ticks / 10) % 1000000000);
+
+                    //Destination FileName
+                    var fileName = Path.Combine(_hostingEnvironment.WebRootPath + "/images/books/", number + Path.GetExtension(book.ImgFile.FileName));
+                    //FileStream fileStream = new FileStream(fileName, FileMode.Create);
+                    using (var strm = System.IO.File.Create(fileName))
+                    {
+                        book.ImgFile.CopyTo(strm);
+                    }
+                    book.ImgUrl = "/images/books/" + number + Path.GetExtension(fileName);
+                }
+
                 if (book.Id == 0)
                 {
                     _bookStoreContext.Add(book);
@@ -58,6 +80,13 @@ namespace BookStore.Data.Repositories
             {
                 _bookStoreContext.Remove(book);
                 _bookStoreContext.SaveChanges();
+
+                var fileName = Path.Combine(_hostingEnvironment.WebRootPath + book.ImgUrl);
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+
                 return true;
             }
 

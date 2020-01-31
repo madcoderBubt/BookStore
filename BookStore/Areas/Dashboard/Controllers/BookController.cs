@@ -71,18 +71,7 @@ namespace BookStore.Areas.Dashboard.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    if (book != null && book.ImgFile != null)
-                    {
-                        //Destination FileName
-                        var fileName = Path.Combine(_hostingEnvironment.WebRootPath + "/images/books/", book.Id + Path.GetExtension(book.ImgFile.FileName));
-                        //FileStream fileStream = new FileStream(fileName, FileMode.Create);
-                        using (var strm = System.IO.File.Create(fileName))
-                        {
-                            book.ImgFile.CopyTo(strm);
-                        }                        
-                        book.ImgUrl = "/images/books/" + book.Id + Path.GetExtension(fileName);
-                    }
-
+                    
                     if (_bookRepo.AddOrEdit(book))
                     {
                         return Json(new { success = true, message = "Saved Successfull" });
