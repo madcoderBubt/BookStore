@@ -45,7 +45,6 @@ C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2017\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csprojAssemblyReference.cache
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.RazorAssemblyInfo.cache
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.RazorAssemblyInfo.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.AssemblyInfoInputs.cache
@@ -106,3 +105,5 @@ C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.RazorTargetAssemblyInfo.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.Views.pdb
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csproj.CopyComplete
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csprojAssemblyReference.cache
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Gallery\QuickView.cshtml.g.cs

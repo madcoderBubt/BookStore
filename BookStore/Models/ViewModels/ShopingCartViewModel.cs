@@ -9,6 +9,5 @@ namespace BookStore.Models.ViewModels
     {
         public ShopingCart ShopingCart { get; set; }
         public decimal ShopingCartTotal { get; set; }
-
     }
 }
