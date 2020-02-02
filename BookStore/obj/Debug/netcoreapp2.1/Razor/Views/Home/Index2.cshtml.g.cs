@@ -29,7 +29,7 @@ using BookStore.Models.ViewModels;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"282007011e5f907d328d89e98cb70c874b5f502e", @"/Views/Home/Index2.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ebfb66dd7688adb2b874a32236680b170c920090", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7db0590aa26d7d7df8b811f5bd58387e80c4e922", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index2 : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<HomeViewModel>
     {
         #pragma warning disable 1998

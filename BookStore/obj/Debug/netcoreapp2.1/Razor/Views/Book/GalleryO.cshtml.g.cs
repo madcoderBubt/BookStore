@@ -29,7 +29,7 @@ using BookStore.Models.ViewModels;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ac44f8240ee3eb1765daf385a7fe7b95b07745ed", @"/Views/Book/GalleryO.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ebfb66dd7688adb2b874a32236680b170c920090", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7db0590aa26d7d7df8b811f5bd58387e80c4e922", @"/Views/_ViewImports.cshtml")]
     public class Views_Book_GalleryO : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<GalleryViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/shop-homepage.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -76,7 +76,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(72, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7bc39edac2c64b049f1c1e3ce8173def", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e0340b3cad614a4b9e95c2d11b189412", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -108,7 +108,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("</p>\r\n        <div class=\"list-group\">\r\n            ");
             EndContext();
             BeginContext(356, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9593491e2b7422e94a48b5ef8b8955f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85bcebdfb7a64b69b2b435415a15c4c1", async() => {
                 BeginContext(398, 9, true);
                 WriteLiteral("All Books");
                 EndContext();
@@ -162,7 +162,7 @@ WriteAttributeValue("", 2475, Url.Content(item.ImgUrl), 2475, 25, false);
             WriteLiteral(" alt=\"\">\r\n                            ");
             EndContext();
             BeginContext(2539, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "782e6981c2664da79aa689bd2841afad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ff37698c6894c77acfc3d9ff01bf468", async() => {
                 BeginContext(2650, 11, true);
                 WriteLiteral("Add to Cart");
                 EndContext();
@@ -210,7 +210,7 @@ WriteAttributeValue("", 2475, Url.Content(item.ImgUrl), 2475, 25, false);
             WriteLiteral("</h4>\r\n                            <h4>\r\n                                ");
             EndContext();
             BeginContext(2882, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4cc851e2c205482a95c6ae54f523ca21", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f6855e6c82949878ffb652fdc8ddad8", async() => {
                 BeginContext(2931, 9, false);
 #line 70 "C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\Views\Book\GalleryO.cshtml"
                                                                            Write(item.Name);

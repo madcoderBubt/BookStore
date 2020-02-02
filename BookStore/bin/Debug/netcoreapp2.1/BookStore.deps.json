@@ -29,7 +29,10 @@
           "Microsoft.CodeAnalysis.FxCopAnalyzers": "2.9.8",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.10",
-          "Microsoft.jQuery.Unobtrusive.Validation": "3.2.11"
+          "Microsoft.jQuery.Unobtrusive.Validation": "3.2.11",
+          "X.PagedList": "7.9.0",
+          "X.PagedList.Mvc": "7.9.1",
+          "X.PagedList.Web.Common": "7.9.1"
         },
         "runtime": {
           "BookStore.dll": {}
@@ -367,6 +370,42 @@
           "System.Runtime.Extensions": "4.3.0",
           "System.Threading": "4.3.0",
           "System.Threading.Tasks": "4.3.0"
+        }
+      },
+      "X.PagedList/7.9.0": {
+        "runtime": {
+          "lib/netstandard2.0/X.PagedList.dll": {
+            "assemblyVersion": "7.9.0.0",
+            "fileVersion": "7.9.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/X.PagedList.dll": {}
+        }
+      },
+      "X.PagedList.Mvc/7.9.1": {
+        "runtime": {
+          "lib/net461/X.PagedList.Mvc.dll": {
+            "assemblyVersion": "7.9.1.0",
+            "fileVersion": "7.9.1.0"
+          }
+        },
+        "compile": {
+          "lib/net461/X.PagedList.Mvc.dll": {}
+        }
+      },
+      "X.PagedList.Web.Common/7.9.1": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/X.PagedList.Web.Common.dll": {
+            "assemblyVersion": "7.9.1.0",
+            "fileVersion": "7.9.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/X.PagedList.Web.Common.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3686,6 +3725,27 @@
       "sha512": "sha512-td7x21K8LalpjTWCzW/nQboQIFbq9i0r+PCyBBCdLWWnm4NBcdN18vpz/G9hCpUaCIfRL+ZxJNVTywlNlB1aLQ==",
       "path": "system.linq.parallel/4.3.0",
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
+    },
+    "X.PagedList/7.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y5cpcQnPVu3JDEiZVcG3yeSDx7Xz9N9Ok6AXqH/CLHTLJK+2ekaUz1rU9Gkuo/t9PhFO8RUx8BQI/AlZm6338g==",
+      "path": "x.pagedlist/7.9.0",
+      "hashPath": "x.pagedlist.7.9.0.nupkg.sha512"
+    },
+    "X.PagedList.Mvc/7.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U1yTdbYPSS3bHs57KFp8u5F5aTBC/S8W3L4YHZKxzYDr6Tqa5zawBenlwjDpkOuo5j4Rj0RjtGburXAoCAyMpA==",
+      "path": "x.pagedlist.mvc/7.9.1",
+      "hashPath": "x.pagedlist.mvc.7.9.1.nupkg.sha512"
+    },
+    "X.PagedList.Web.Common/7.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u4kP6vKaCyfth/H+famPBfwliZp8t6g/BdG6tB4ZYUOZISNCTcvUJfXkoXQeGeLnFe3DkiqgHc0NE24++sPSTg==",
+      "path": "x.pagedlist.web.common/7.9.1",
+      "hashPath": "x.pagedlist.web.common.7.9.1.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

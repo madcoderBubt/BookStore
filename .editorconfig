@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CA1710: Identifiers should have correct suffix
+dotnet_diagnostic.CA1710.severity = suggestion

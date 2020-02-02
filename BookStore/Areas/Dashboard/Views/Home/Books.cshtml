@@ -95,7 +95,7 @@
                         "render": function (data) {
                             return "<div class='btn-group' style='width:90px'>"
                                 + "<a class='btn btn-primary' onclick=PopupForm('Dashboard/Book/AddOrEdit/" + data + "') href='#'><i class='fa fa-lg fa-edit'></i></a>"
-                                + "<a class='btn btn-danger' href='#' onclick=''><i class='fa fa-lg fa-trash'></i></a></div>";
+                                + "<a class='btn btn-danger' href='#' onclick=deleteForm('"+data+"')><i class='fa fa-lg fa-trash'></i></a></div>";
                         },
                         orderable: false,
                         searchable: false
@@ -143,13 +143,14 @@
                 processData: false,
                 success: function (data) {
                     if (data.success) {
-                        $(popup).dialog('close');
                         dataTable.ajax.reload();
 
                         $.notify(data.message, {
                             globalPosition: "top center",
                             className: "success",
                         });
+                        
+                        $(popup).dialog('close');
                     } else {
                         $.notify(data.message, {
                             globalPosition: "top center",
@@ -158,8 +159,39 @@
                     }
                 }
             });
-
             return false;
+        }
+
+                //For Delete
+        function deleteForm(id) {
+            if (confirm('Are you sure to Delete this data?')) {
+                $.ajax({
+                    type: "post",
+                    url: "/Dashboard/Book/delete",
+                    data: { 'id': id },
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+                            //alert(data.message);
+                            $.notify({
+                                title: "Notify: ",
+                                message: data.message,
+                                icon: "fa fa-check"
+                            }, {
+                                type: "info"
+                            });
+                        } else {
+                            $.notify({
+                                title: "Notify: ",
+                                message: data.message,
+                                icon: "fa fa-check"
+                            }, {
+                                type: "warning"
+                            });
+                        }
+                    }
+                });
+            }
         }
 
     </script>

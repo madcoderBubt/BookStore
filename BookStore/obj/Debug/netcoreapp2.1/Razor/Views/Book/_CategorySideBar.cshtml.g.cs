@@ -29,7 +29,7 @@ using BookStore.Models.ViewModels;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8d55974e82e843e04a07b85cb57cb1387d5e9bde", @"/Views/Book/_CategorySideBar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ebfb66dd7688adb2b874a32236680b170c920090", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7db0590aa26d7d7df8b811f5bd58387e80c4e922", @"/Views/_ViewImports.cshtml")]
     public class Views_Book__CategorySideBar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Category>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Book", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -69,7 +69,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("    <li>\r\n        ");
             EndContext();
             BeginContext(83, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3242d9442ae54346b7abfd1e0aef9a9f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47708a6f7a3c46d886ef87e9db9453f3", async() => {
                 BeginContext(161, 16, true);
                 WriteLiteral("<span>(3)</span>");
                 EndContext();

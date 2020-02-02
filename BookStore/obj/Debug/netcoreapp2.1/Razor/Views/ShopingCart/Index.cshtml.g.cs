@@ -29,7 +29,7 @@ using BookStore.Models.ViewModels;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b3cd3b50aad43bbf0dc48c70d4a9408f50846004", @"/Views/ShopingCart/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ebfb66dd7688adb2b874a32236680b170c920090", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7db0590aa26d7d7df8b811f5bd58387e80c4e922", @"/Views/_ViewImports.cshtml")]
     public class Views_ShopingCart_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ShopingCartViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -162,7 +162,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("\r\n                </td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n\r\n    <div class=\"text-right\">\r\n        <div class=\"btn-group \">\r\n            ");
             EndContext();
             BeginContext(2162, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc63cc7a6784422e90e96ac9161b295b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0c1124e0b69490e954ebe3de51b8d80", async() => {
                 BeginContext(2234, 9, true);
                 WriteLiteral("Check out");
                 EndContext();
@@ -193,7 +193,7 @@ using BookStore.Models.ViewModels;
                     <li>");
             EndContext();
             BeginContext(2534, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "992a330a0cd94ebb9bcdafd648cae03d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2472700f08e04132a8183a80d58f3443", async() => {
                 BeginContext(2609, 9, true);
                 WriteLiteral("Alcoholic");
                 EndContext();
@@ -223,7 +223,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("</li>\r\n                    <li>");
             EndContext();
             BeginContext(2653, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edea978e729945cfa487508201461263", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "03fc89b5107a4d838d67f21919dd3121", async() => {
                 BeginContext(2732, 13, true);
                 WriteLiteral("Non Alcoholic");
                 EndContext();

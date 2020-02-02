@@ -91,5 +91,13 @@ namespace BookStore.Areas.Dashboard.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+            if (_bookRepo.Delete(id))
+            {
+                return Json(new { success = true, message = "Delete Successfull" });
+            }
+            return Json(new { success = false, message = "Delete Failed" });
+        }
     }
 }

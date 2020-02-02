@@ -29,7 +29,7 @@ using BookStore.Models.ViewModels;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4da26ad4c766d8d42298b5b38e4ece2d3f85f18e", @"/Views/Book/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ebfb66dd7688adb2b874a32236680b170c920090", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7db0590aa26d7d7df8b811f5bd58387e80c4e922", @"/Views/_ViewImports.cshtml")]
     public class Views_Book_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Book>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("breadcrumb_item"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -84,7 +84,7 @@ using BookStore.Models.ViewModels;
                         ");
             EndContext();
             BeginContext(458, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbd8991bc4b34f3eb3ef0568cd01dbd0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d25c33dee9f240d4bc460b508b800158", async() => {
                 BeginContext(504, 4, true);
                 WriteLiteral("Home");
                 EndContext();
@@ -868,7 +868,7 @@ using BookStore.Models.ViewModels;
                                 ");
             EndContext();
             BeginContext(53540, 813, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d77fbbea9034fafb13a7b515786ac27", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a700277b36a4d289081ddf10a398518", async() => {
                 BeginContext(53570, 776, true);
                 WriteLiteral(@"
                                     <div id=""slider-range""></div>
@@ -944,7 +944,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("              </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End main Content -->\r\n<!-- Start Search Popup -->\r\n<div class=\"box-search-content search_active block-bg close__top\">\r\n    ");
             EndContext();
             BeginContext(56607, 322, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e344c8b877ad4ea4bd14cc75ba2f3fe8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e29f0f4073843bb954df77ea4052e93", async() => {
                 BeginContext(56668, 254, true);
                 WriteLiteral("\r\n        <div class=\"field__search\">\r\n            <input type=\"text\" placeholder=\"Search entire store here...\">\r\n            <div class=\"action\">\r\n                <a href=\"#\"><i class=\"zmdi zmdi-search\"></i></a>\r\n            </div>\r\n        </div>\r\n    ");
                 EndContext();

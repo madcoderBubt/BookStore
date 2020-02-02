@@ -39,7 +39,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"80ae1a35510accd4a6d9cafcda22a749652aaf82", @"/Views/Shared/_LoginPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ebfb66dd7688adb2b874a32236680b170c920090", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7db0590aa26d7d7df8b811f5bd58387e80c4e922", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__LoginPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "Dashboard", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -93,7 +93,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
             WriteLiteral("    <span>");
             EndContext();
             BeginContext(204, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0ae8cbe7b52a46d485768189c3e08099", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62089263fbbb453fbc3c270a9e09cb21", async() => {
                 BeginContext(251, 18, false);
 #line 9 "C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\Views\Shared\_LoginPartial.cshtml"
                                                    Write(User.Identity.Name);
@@ -121,7 +121,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
             WriteLiteral("</span>\r\n    <span><a href=\"#\">My Wishlist</a></span>\r\n    <span>\r\n        <a href=\"javascript:document.getElementById(\'logoutForm\').submit()\">Log out</a>\r\n    </span>\r\n    ");
             EndContext();
             BeginContext(446, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eddc25e623184a42beb21cde3b66998f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bc9994240443ed9d3ec62c06cabd3e", async() => {
                 BeginContext(527, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
@@ -160,7 +160,7 @@ else
             WriteLiteral("    <span>");
             EndContext();
             BeginContext(564, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b898fc0c84b241519d6b7daf275aec00", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b479fd2981e74315aa8952aeb2e812ab", async() => {
                 BeginContext(625, 7, true);
                 WriteLiteral("Sign In");
                 EndContext();
@@ -185,7 +185,7 @@ else
             WriteLiteral("</span>\r\n    <span>");
             EndContext();
             BeginContext(655, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e912eb63e694a8ebcfe4ee1cc3dd3f9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87de5cecc56545e19f9346ca59cee090", async() => {
                 BeginContext(723, 17, true);
                 WriteLiteral("Create An Account");
                 EndContext();

@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore", "BookStore\BookStore.csproj", "{A0EDE36F-C0BD-44AF-B421-B4A950E57AC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore", "BookStore\BookStore.csproj", "{A0EDE36F-C0BD-44AF-B421-B4A950E57AC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A16AA86-54C1-4366-B2CB-3A2065E96CE9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

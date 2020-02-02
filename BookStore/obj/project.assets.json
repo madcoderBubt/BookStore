@@ -4667,6 +4667,36 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "X.PagedList/7.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/X.PagedList.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/X.PagedList.dll": {}
+        }
+      },
+      "X.PagedList.Mvc/7.9.1": {
+        "type": "package",
+        "compile": {
+          "lib/net461/X.PagedList.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net461/X.PagedList.Mvc.dll": {}
+        }
+      },
+      "X.PagedList.Web.Common/7.9.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/X.PagedList.Web.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/X.PagedList.Web.Common.dll": {}
+        }
       }
     }
   },
@@ -13009,6 +13039,49 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "X.PagedList/7.9.0": {
+      "sha512": "Y5cpcQnPVu3JDEiZVcG3yeSDx7Xz9N9Ok6AXqH/CLHTLJK+2ekaUz1rU9Gkuo/t9PhFO8RUx8BQI/AlZm6338g==",
+      "type": "package",
+      "path": "x.pagedlist/7.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/X.PagedList.dll",
+        "lib/net461/X.PagedList.dll",
+        "lib/netstandard1.1/X.PagedList.dll",
+        "lib/netstandard2.0/X.PagedList.dll",
+        "x.pagedlist.7.9.0.nupkg.sha512",
+        "x.pagedlist.nuspec"
+      ]
+    },
+    "X.PagedList.Mvc/7.9.1": {
+      "sha512": "U1yTdbYPSS3bHs57KFp8u5F5aTBC/S8W3L4YHZKxzYDr6Tqa5zawBenlwjDpkOuo5j4Rj0RjtGburXAoCAyMpA==",
+      "type": "package",
+      "path": "x.pagedlist.mvc/7.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/X.PagedList.Mvc.dll",
+        "lib/net461/X.PagedList.Mvc.dll",
+        "x.pagedlist.mvc.7.9.1.nupkg.sha512",
+        "x.pagedlist.mvc.nuspec"
+      ]
+    },
+    "X.PagedList.Web.Common/7.9.1": {
+      "sha512": "u4kP6vKaCyfth/H+famPBfwliZp8t6g/BdG6tB4ZYUOZISNCTcvUJfXkoXQeGeLnFe3DkiqgHc0NE24++sPSTg==",
+      "type": "package",
+      "path": "x.pagedlist.web.common/7.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/X.PagedList.Web.Common.dll",
+        "lib/net461/X.PagedList.Web.Common.dll",
+        "lib/netstandard1.1/X.PagedList.Web.Common.dll",
+        "lib/netstandard2.0/X.PagedList.Web.Common.dll",
+        "x.pagedlist.web.common.7.9.1.nupkg.sha512",
+        "x.pagedlist.web.common.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -13018,7 +13091,10 @@
       "Microsoft.CodeAnalysis.FxCopAnalyzers >= 2.9.8",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10",
-      "Microsoft.jQuery.Unobtrusive.Validation >= 3.2.11"
+      "Microsoft.jQuery.Unobtrusive.Validation >= 3.2.11",
+      "X.PagedList >= 7.9.0",
+      "X.PagedList.Mvc >= 7.9.1",
+      "X.PagedList.Web.Common >= 7.9.1"
     ]
   },
   "packageFolders": {
@@ -13092,6 +13168,18 @@
           "Microsoft.jQuery.Unobtrusive.Validation": {
             "target": "Package",
             "version": "[3.2.11, )"
+          },
+          "X.PagedList": {
+            "target": "Package",
+            "version": "[7.9.0, )"
+          },
+          "X.PagedList.Mvc": {
+            "target": "Package",
+            "version": "[7.9.1, )"
+          },
+          "X.PagedList.Web.Common": {
+            "target": "Package",
+            "version": "[7.9.1, )"
           }
         },
         "imports": [
@@ -13107,5 +13195,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'X.PagedList.Mvc 7.9.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "X.PagedList.Mvc",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }
