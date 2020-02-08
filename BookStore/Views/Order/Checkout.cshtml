@@ -1,65 +1,209 @@
 ﻿@model BookStore.Models.Order
-
 @{
     ViewData["Title"] = "Checkout";
+    Layout = "_LayoutN";
 }
 
-<h2>Checkout</h2>
-
-<h4>Order</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Checkout">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+<!-- Start Bradcaump area -->
+<div class="ht__bradcaump__area bg-image--4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bradcaump__inner text-center">
+                    <h2 class="bradcaump-title">Checkout</h2>
+                    <nav class="bradcaump-content">
+                        <a class="breadcrumb_item" href="index.html">Home</a>
+                        <span class="brd-separetor">/</span>
+                        <span class="breadcrumb_item active">Checkout</span>
+                    </nav>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZipCode" class="control-label"></label>
-                <input asp-for="ZipCode" class="form-control" />
-                <span asp-validation-for="ZipCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+<!-- End Bradcaump area -->
+<!-- Start Checkout Area -->
+<section class="wn__checkout__area section-padding--lg bg__white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wn_checkout_wrap">
+                    <div class="checkout_info">
+                        <span>Returning customer ?</span>
+                        <a class="showlogin" href="#">Click here to login</a>
+                    </div>
+                    <div class="checkout_login">
+                        <form class="wn__checkout__form" action="#">
+                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+                            <div class="input__box">
+                                <label>Username or email <span>*</span></label>
+                                <input type="text">
+                            </div>
 
+                            <div class="input__box">
+                                <label>password <span>*</span></label>
+                                <input type="password">
+                            </div>
+                            <div class="form__btn">
+                                <button>Login</button>
+                                <label class="label-for-checkbox">
+                                    <input id="rememberme" name="rememberme" value="forever" type="checkbox">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="#">Lost your password?</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="checkout_info">
+                        <span>Have a coupon? </span>
+                        <a class="showcoupon" href="#">Click here to enter your code</a>
+                    </div>
+                    <div class="checkout_coupon">
+                        <form action="#">
+                            <div class="form__coupon">
+                                <input type="text" placeholder="Coupon code">
+                                <button>Apply coupon</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="customer_details">
+                    <h3>Billing details</h3>
+                    <div class="customar__field">
+                        <div class="margin_between">
+                            <div class="input_box space_between">
+                                <label asp-for="FirstName">First name <span>*</span></label>
+                                <input asp-for="FirstName" type="text">
+                            </div>
+                            <div class="input_box space_between">
+                                <label asp-for="LastName">last name <span>*</span></label>
+                                <input type="text" asp-for="LastName">
+                            </div>
+                        </div>
+                        <div class="input_box">
+                            <label asp-for="Country">Country <span>*</span></label>
+                            <input type="text" asp-for="Country">
+                        </div>
+                        <div class="input_box">
+                            <label asp-for="Address">Address <span>*</span></label>
+                            <input type="text" asp-for="Address" placeholder="Street address">
+                        </div>
+                        <div class="input_box">
+                            <input type="text" asp-for="State" placeholder="State">
+                        </div>
+                        <div class="input_box">
+                            <label asp-for="ZipCode">Postcode / ZIP <span>*</span></label>
+                            <input type="text" asp-for="ZipCode">
+                        </div>
+                        <div class="margin_between">
+                            <div class="input_box space_between">
+                                <label asp-for="PhoneNumber">Phone <span>*</span></label>
+                                <input type="text" asp-for="PhoneNumber">
+                            </div>
+
+                            <div class="input_box space_between">
+                                <label asp-for="Email">Email address <span>*</span></label>
+                                <input type="email" asp-for="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="create__account">
+                        <div class="wn__accountbox">
+                            <input class="input-checkbox" name="createaccount" value="1" type="checkbox">
+                            <span>Create an account ?</span>
+                        </div>
+                        <div class="account__field">
+                            <form action="#">
+                                <label>Account password <span>*</span></label>
+                                <input type="text" placeholder="password">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
+                <div class="wn__order__box">
+                    <h3 class="onder__title">Your order</h3>
+                    <ul class="order__total">
+                        <li>Product</li>
+                        <li>Total</li>
+                    </ul>
+                    <ul class="order_product">
+                        <li>Buscipit at magna × 1<span>$48.00</span></li>
+                        <li>Buscipit at magna × 1<span>$48.00</span></li>
+                        <li>Buscipit at magna × 1<span>$48.00</span></li>
+                        <li>Buscipit at magna × 1<span>$48.00</span></li>
+                    </ul>
+                    <ul class="shipping__method">
+                        <li>Cart Subtotal <span>$48.00</span></li>
+                        <li>
+                            Shipping
+                            <ul>
+                                <li>
+                                    <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
+                                    <label>Flat Rate: $48.00</label>
+                                </li>
+                                <li>
+                                    <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
+                                    <label>Flat Rate: $48.00</label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="total__amount">
+                        <li>Order Total <span>$223.00</span></li>
+                    </ul>
+                </div>
+                <div id="accordion" class="checkout_accordion mt--30" role="tablist">
+                    <div class="payment">
+                        <div class="che__header" role="tab" id="headingOne">
+                            <a class="checkout__title" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <span>Direct Bank Transfer</span>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="payment-body">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</div>
+                        </div>
+                    </div>
+                    <div class="payment">
+                        <div class="che__header" role="tab" id="headingTwo">
+                            <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span>Cheque Payment</span>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="payment-body">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</div>
+                        </div>
+                    </div>
+                    <div class="payment">
+                        <div class="che__header" role="tab" id="headingThree">
+                            <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span>Cash on Delivery</span>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="payment-body">Pay with cash upon delivery.</div>
+                        </div>
+                    </div>
+                    <div class="payment">
+                        <div class="che__header" role="tab" id="headingFour">
+                            <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <span>PayPal <img src="~/images/icons/payment.png" alt="payment images"> </span>
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="payment-body">Pay with cash upon delivery.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Checkout Area -->

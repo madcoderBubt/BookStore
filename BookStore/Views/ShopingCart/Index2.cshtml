@@ -1,0 +1,80 @@
+﻿@model ShopingCartViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h2>Index</h2>
+
+<div>
+    <h4>ShopingCartViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopingCartTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShopingCartTotal)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+<div class="row checkoutForm">
+    <h2>Your shopping cart</h2>
+    <h4>Here are the drinks in your shopping cart.</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Selected amount</th>
+                <th>Drink</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.ShopingCart.ShopingCartItems)
+            {
+                <tr>
+                    <td class="text-center">@line.Amount</td>
+                    <td class="text-left">@line.Book.Name</td>
+                    <td class="text-right">@line.Book.Price.ToString("c")</td>
+                    <td class="text-right">
+                        @((line.Amount * line.Book.Price).ToString("c"))
+                    </td>
+                    <td class="text-center">
+                        @*<a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" 
+                            asp-action="RemoveFromShoppingCart" asp-route-drinkId="@line.Book.Id"></a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.ShopingCartTotal.ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="text-right">
+        <div class="btn-group ">
+            <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Check out</a>
+            <a class="btn-group">
+                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Add more drinks<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a asp-controller="Drink" asp-action="List" asp-route-category="Alcoholic">Alcoholic</a></li>
+                    <li><a asp-controller="Drink" asp-action="List" asp-route-category="Non-alcoholic">Non Alcoholic</a></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+</div>

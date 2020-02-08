@@ -15,10 +15,10 @@
                     <span>Cart Subtotal</span>
                 </div>
                 <div class="total_amount text-right">
-                    <span>$@Model.ShopingCartTotal</span>
+                    <span>@Model.ShopingCartTotal.ToString("c")</span>
                 </div>
                 <div class="mini_action checkout">
-                    <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                    <a class="checkout__btn" asp-action="Checkout" asp-controller="Order">Go to Checkout</a>
                 </div>
                 <!--
                     <div class="single__items">
@@ -75,7 +75,7 @@
                     </div>
                 -->
                 <div class="mini_action cart">
-                    <a class="cart__btn" href="cart.html">View and edit cart</a>
+                    <a class="cart__btn" asp-controller="ShopingCart" asp-action="Index">View and edit cart</a>
                 </div>
             </div>
         </div>
