@@ -16,6 +16,10 @@ namespace BookStore.TagHelpers
         public int TotalPage { get; set; }
         public int CurrentPage { get; set; }
         public string Link { get; set; }
+        [HtmlAttributeName("filter-Category")]
+        public string Category { get; set; }
+        [HtmlAttributeName("filter-Price")]
+        public string Price { get; set; }
 
         private HtmlEncoder _encoder;
         public PagingTagHelper(HtmlEncoder htmlEncoder)
@@ -32,18 +36,20 @@ namespace BookStore.TagHelpers
                 output = new TagHelperOutput("paging",null,null);
             }
 
+            string _category = (Category != "All Books") ? Category : "";
+
             output.TagName = "ul";
             var items = new StringBuilder();
             if (CurrentPage != 1)
             {
-                items.AppendLine($"<li><a href='{Link}?PageNo={CurrentPage-1}'><i class='zmdi zmdi-chevron-left'></i></a></li>");
+                items.AppendLine($"<li><a href='{Link}?pn={CurrentPage-1}&c={_category}&fb={Price}'><i class='zmdi zmdi-chevron-left'></i></a></li>");
             }
 
             for (int i = 1; i <= TotalPage; i++)
             {
                 var li = new TagBuilder("li");
                 var a = new TagBuilder("a");
-                a.MergeAttribute("href", $"{Link}?PageNo={i}");
+                a.MergeAttribute("href", $"{Link}?pn={i}&c={_category}&fb={Price}");
                 a.InnerHtml.Append(i.ToString(CultureInfo.InvariantCulture));                
 
                 if (i == CurrentPage)
@@ -60,7 +66,7 @@ namespace BookStore.TagHelpers
 
             if (CurrentPage != TotalPage)
             {
-                items.AppendLine($"<li><a href='{Link}?PageNo={CurrentPage + 1}'><i class='zmdi zmdi-chevron-right'></i></a></li>");
+                items.AppendLine($"<li><a href='{Link}?pn={CurrentPage + 1}&c={_category}&fb={Price}'><i class='zmdi zmdi-chevron-right'></i></a></li>");
             }
 
             output.Content.SetHtmlContent(items.ToString());

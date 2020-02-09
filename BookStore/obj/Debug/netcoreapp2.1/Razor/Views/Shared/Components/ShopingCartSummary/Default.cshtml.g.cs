@@ -111,7 +111,7 @@ using BookStore.Models.ViewModels;
             WriteLiteral("</span>\r\n                </div>\r\n                <div class=\"mini_action checkout\">\r\n                    ");
             EndContext();
             BeginContext(942, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bfe72fb9af14e49b0b928e16c877a87", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53f82bb8531d62577284e9f6fb0660343c2fcb267988", async() => {
                 BeginContext(1012, 14, true);
                 WriteLiteral("Go to Checkout");
                 EndContext();
@@ -196,7 +196,7 @@ using BookStore.Models.ViewModels;
                     ");
             EndContext();
             BeginContext(4739, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0be2614d96d84d5d84100e8aa0681bcd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53f82bb8531d62577284e9f6fb0660343c2fcb2613559", async() => {
                 BeginContext(4808, 18, true);
                 WriteLiteral("View and edit cart");
                 EndContext();

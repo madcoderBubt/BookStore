@@ -94,7 +94,7 @@ using BookStore.Models.ViewModels;
                 ");
             EndContext();
             BeginContext(1030, 1871, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4942300f6ab14033b8de28116843a9bf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ffa150aefb5a3447f28e3cd76dc80d1e257716c35888", async() => {
                 BeginContext(1047, 780, true);
                 WriteLiteral(@"
                     <div class=""table-content wnro__table table-responsive"">
@@ -204,7 +204,7 @@ WriteAttributeValue("", 2466, item.Amount, 2466, 12, false);
                         <li>");
             EndContext();
             BeginContext(3282, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9ff8852811c42e68c06e03c166f5ae1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ffa150aefb5a3447f28e3cd76dc80d1e257716c312371", async() => {
                 BeginContext(3330, 9, true);
                 WriteLiteral("Check Out");
                 EndContext();

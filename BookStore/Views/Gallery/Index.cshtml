@@ -31,7 +31,7 @@
                     <aside class="wedget__categories poroduct--cat">
                         <h3 class="wedget__title">Product Categories</h3>
                         <ul>
-                            <li><a href="~/Book/">All Books</a></li>
+                            <li><a asp-action="Index">All Books</a></li>
                             @await Html.PartialAsync("_CategorySideBar", Model.Categories)
                         </ul>
                     </aside>
@@ -142,7 +142,10 @@
                             <li><a href="#">4</a></li>
                             <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
                         </ul>*@
-                        <paging current-page="Model.currentPage" total-page="Model.totalPages" link="Gallery"></paging>
+                        <paging current-page="Model.currentPage" 
+                                total-page="Model.totalPages" 
+                                filter-Category="@Model.currentCategory" 
+                                link="Gallery"></paging>
                     </div>
                     <div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
                         <div class="list__view__wrapper">
