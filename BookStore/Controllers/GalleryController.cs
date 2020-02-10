@@ -30,8 +30,7 @@ namespace BookStore.Controllers
             int totalPages = 6;
             int lengthItem;
             int excludeRecords = (totalPages * pn) - totalPages;
-            //var bookList = _bookRepository.Books;
-            IEnumerable<Book> books;
+            IEnumerable<Book> books, books1;
 
             //text conversion to => Title Case <=
              TextInfo text = new CultureInfo("en-us", true).TextInfo;
@@ -39,32 +38,40 @@ namespace BookStore.Controllers
 
             string _currentCategory = string.Empty;
 
-            if (string.IsNullOrEmpty(c))
+            if (string.IsNullOrEmpty(c) || c.Equals("All Books"))
             {
-                books = _bookRepository.Books
-                    .OrderBy(o => o.Id)
-                    .Skip(excludeRecords)
-                    .Take(totalPages);
-                lengthItem = _bookRepository.Books.Count();
+                books = _bookRepository.Books;
                 _currentCategory = "All Books";
             }
             else
             {
                 books = _bookRepository.Books
-                    .Where(f=>f.Category.Name == _category)
-                    .OrderBy(o => o.Id)
-                    .Skip(excludeRecords)
-                    .Take(totalPages);
+                    .Where(f => f.Category.Name == _category);
                 _currentCategory = c;
-                lengthItem = _bookRepository.Books
-                    .Where(f => f.Category.Name == _category)
-                    .Count();
             }
+            if (!string.IsNullOrEmpty(fb))
+            {
+                string[] s = fb.Split('-');
+                for (int i = 0; i < s.Length; i++)
+                {
+                    s[i] = s[i].Trim(new char[] { '$',' '});
+                }
+                books1 = books
+                    .Where(f => 
+                    f.Price >= Convert.ToInt32(s[0], CultureInfo.InvariantCulture) && 
+                    f.Price <= Convert.ToInt32(s[1], CultureInfo.InvariantCulture));
+                books = books1;
+            }
+            lengthItem = books.Count();
 
+            ViewBag.filter = fb;
             GalleryViewModel galleryView = new GalleryViewModel
             {
                 currentCategory = _currentCategory,
-                Books = books,
+                Books = books
+                    .OrderBy(o => o.Id)
+                    .Skip(excludeRecords)
+                    .Take(totalPages),
                 currentPage = pn,
                 totalPages = Convert.ToInt32(Math.Ceiling(lengthItem / (double)totalPages)),
                 pageSize = totalPages,

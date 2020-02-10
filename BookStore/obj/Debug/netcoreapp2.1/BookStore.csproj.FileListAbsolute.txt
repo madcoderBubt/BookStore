@@ -103,9 +103,9 @@ C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.RazorTargetAssemblyInfo.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.Views.pdb
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csproj.CopyComplete
-C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csprojAssemblyReference.cache
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Gallery\QuickView.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\ShopingCart\Index2.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Order\Checkout1.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\ShopingCart\Index.cshtml.g.cs
 C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Order\Checkout.cshtml.g.cs
+C:\Users\Mad Coder\Documents\Visual Studio 2019\Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csprojAssemblyReference.cache

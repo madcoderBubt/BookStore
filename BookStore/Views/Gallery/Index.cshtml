@@ -47,7 +47,7 @@
                                                 <span>Price :</span><input type="text" id="amount" readonly="">
                                             </div>
                                             <div class="price--filter">
-                                                <a href="#">Filter</a>
+                                                <a href="#" onclick="clickMe()">Filter</a>
                                             </div>
                                         </div>
                                     </div>
@@ -145,6 +145,7 @@
                         <paging current-page="Model.currentPage" 
                                 total-page="Model.totalPages" 
                                 filter-Category="@Model.currentCategory" 
+                                filter-Price= "@ViewBag.filter"
                                 link="Gallery"></paging>
                     </div>
                     <div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
@@ -192,6 +193,11 @@
 <!-- End Shop Page -->
 @section scripts{ 
     <script type="text/javascript">
+        
 
+        function clickMe() {
+            var value = $("#amount").val();
+            window.location = "/Gallery?c=@(Model.currentCategory)&fb=" + value;
+        }
     </script>
 }
