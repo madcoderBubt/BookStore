@@ -8,8 +8,6 @@ using BookStore.Models;
 using BookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using X.PagedList;
-using X.PagedList.Mvc;
 
 namespace BookStore.Controllers
 {
