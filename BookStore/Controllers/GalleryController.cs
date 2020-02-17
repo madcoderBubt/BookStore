@@ -36,7 +36,7 @@ namespace BookStore.Controllers
 
             string _currentCategory = string.Empty;
 
-            if (string.IsNullOrEmpty(c) || c.Equals("All Books"))
+            if (string.IsNullOrEmpty(c) || c == "All Books")
             {
                 books = _bookRepository.Books;
                 _currentCategory = "All Books";
@@ -47,6 +47,7 @@ namespace BookStore.Controllers
                     .Where(f => f.Category.Name == _category);
                 _currentCategory = c;
             }
+
             if (!string.IsNullOrEmpty(fb))
             {
                 string[] s = fb.Split('-');
@@ -77,6 +78,13 @@ namespace BookStore.Controllers
             };
 
             return View(galleryView);
+        }
+
+        public ActionResult Book(int id)
+        {
+             
+
+            return View();
         }
     }
 }
