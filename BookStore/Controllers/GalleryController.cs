@@ -82,9 +82,11 @@ namespace BookStore.Controllers
 
         public ActionResult Book(int id)
         {
-             
+            //Book book = new Book();
 
-            return View();
+            var book = _bookRepository.GetBookById(id);
+
+            return View(book);
         }
     }
 }

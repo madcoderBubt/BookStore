@@ -98,8 +98,8 @@
                                 <!-- Start Single Product -->
                                 <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="product__thumb">
-                                        <a class="first__img" href="single-product.html"><img src="@item.ImgUrl" alt="product image"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img src="~/images/books/2.jpg" alt="product image"></a>
+                                        <a class="first__img" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="@item.ImgUrl" alt="product image"></a>
+                                        <a class="second__img animation1" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="~/images/books/2.jpg" alt="product image"></a>
                                         <div class="hot__box">
                                             <span class="hot-label">BEST SALLER</span>
                                         </div>
@@ -155,8 +155,8 @@
                                 <!-- Start Single Product -->
                                 <div class="list__view">
                                     <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img src="@item.ImgUrl" alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img src="~/images/product/2.jpg" alt="product images"></a>
+                                        <a class="first__img" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="@item.ImgUrl" alt="product images"></a>
+                                        <a class="second__img animation1" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="~/images/product/2.jpg" alt="product images"></a>
                                     </div>
                                     <div class="content">
                                         <h2><a href="single-product.html">@item.Name</a></h2>

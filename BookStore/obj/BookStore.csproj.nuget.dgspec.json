@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mad Coder\\Documents\\Visual Studio 2019\\Projects\\BookStore\\BookStore\\BookStore.csproj": {}
+    "D:\\VS 19 Projects\\BookStore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mad Coder\\Documents\\Visual Studio 2019\\Projects\\BookStore\\BookStore\\BookStore.csproj": {
+    "D:\\VS 19 Projects\\BookStore\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mad Coder\\Documents\\Visual Studio 2019\\Projects\\BookStore\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "D:\\VS 19 Projects\\BookStore\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "C:\\Users\\Mad Coder\\Documents\\Visual Studio 2019\\Projects\\BookStore\\BookStore\\BookStore.csproj",
-        "packagesPath": "C:\\Users\\Mad Coder\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mad Coder\\Documents\\Visual Studio 2019\\Projects\\BookStore\\BookStore\\obj\\",
+        "projectPath": "D:\\VS 19 Projects\\BookStore\\BookStore\\BookStore.csproj",
+        "packagesPath": "C:\\Users\\shbso\\.nuget\\packages\\",
+        "outputPath": "D:\\VS 19 Projects\\BookStore\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mad Coder\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\shbso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -83,7 +84,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

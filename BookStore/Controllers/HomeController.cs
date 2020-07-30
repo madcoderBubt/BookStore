@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using BookStore.Models;
 using BookStore.Data.Interface;
 using BookStore.Models.ViewModels;
+using BookStore.Data;
 
 namespace BookStore.Controllers
 {

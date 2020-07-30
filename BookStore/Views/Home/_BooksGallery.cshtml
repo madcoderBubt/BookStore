@@ -7,8 +7,8 @@
         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
             <div class="product product__style--3">
                 <div class="product__thumb" style="height:340px">
-                    <a class="first__img" href="single-product.html"><img src="@Url.Content(item.ImgUrl)" alt="product image"></a>
-                    <a class="second__img animation1" href="single-product.html"><img src="images/books/2.jpg" alt="product image"></a>
+                    <a class="first__img" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="@Url.Content(item.ImgUrl)" alt="product image"></a>
+                    <a class="second__img animation1" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="images/books/2.jpg" alt="product image"></a>
                     <div class="hot__box">
                         <span class="hot-label">BEST SALER</span>
                     </div>

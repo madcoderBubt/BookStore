@@ -24,7 +24,7 @@ namespace BookStore.Data.Repositories
         public IEnumerable<Book> Books => _bookStoreContext.Books.Include(f=>f.Category);
         //public Book Book => _bookStoreContext;
 
-        public Book GetBookById(int id) => _bookStoreContext.Books.FirstOrDefault(p => p.Id == id);
+        public Book GetBookById(int id) => _bookStoreContext.Books.Include(s=>s.Category).FirstOrDefault(p => p.Id == id);
         public Category GetCategory(int id) => _bookStoreContext.Books.FirstOrDefault(p => p.Id == id).Category;
 
         public bool AddOrEdit(Book book)

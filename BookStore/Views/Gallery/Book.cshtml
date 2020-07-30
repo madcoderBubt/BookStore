@@ -1,5 +1,6 @@
-﻿
+﻿@model Book
 @{
+
     ViewData["Title"] = "Book";
     Layout = "_LayoutN";
 }
@@ -32,20 +33,14 @@
                         <div class="col-lg-6 col-12">
                             <div class="wn__fotorama__wrapper">
                                 <div class="fotorama wn__fotorama__action" data-nav="thumbs">
-                                    <a href="1.jpg"><img src="images/product/1.jpg" alt=""></a>
-                                    <a href="2.jpg"><img src="images/product/2.jpg" alt=""></a>
-                                    <a href="3.jpg"><img src="images/product/3.jpg" alt=""></a>
-                                    <a href="4.jpg"><img src="images/product/4.jpg" alt=""></a>
-                                    <a href="5.jpg"><img src="images/product/5.jpg" alt=""></a>
-                                    <a href="6.jpg"><img src="images/product/6.jpg" alt=""></a>
-                                    <a href="7.jpg"><img src="images/product/7.jpg" alt=""></a>
-                                    <a href="8.jpg"><img src="images/product/8.jpg" alt=""></a>
+                                    <a href="1.jpg"><img src="@Model.ImgUrl" alt=""></a>
+                                    <a href="2.jpg"><img src="@Model.ImgUrl" alt=""></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="product__info__main">
-                                <h1>Chaz Kangeroo Hoodie</h1>
+                                <h1>@Model.Name</h1>
                                 <div class="product-reviews-summary d-flex">
                                     <ul class="rating-summary d-flex">
                                         <li><i class="zmdi zmdi-star-outline"></i></li>
@@ -56,11 +51,10 @@
                                     </ul>
                                 </div>
                                 <div class="price-box">
-                                    <span>$52.00</span>
+                                    <span>$@Model.Price</span>
                                 </div>
                                 <div class="product__overview">
-                                    <p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.</p>
-                                    <p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. </p>
+                                    @Model.Details
                                 </div>
                                 <div class="box-tocart d-flex">
                                     <span>Qty</span>
@@ -75,9 +69,8 @@
                                 </div>
                                 <div class="product_meta">
                                     <span class="posted_in">
-                                        Categories:
-                                        <a href="#">Adventure</a>,
-                                        <a href="#">Kids' Music</a>
+                                        Category:
+                                        <a asp-action="" asp-route-c="@Model.Category.Name" >@Model.Category.Name</a>
                                     </span>
                                 </div>
                                 <div class="product-share">
