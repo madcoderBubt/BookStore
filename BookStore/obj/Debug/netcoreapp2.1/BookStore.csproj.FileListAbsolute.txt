@@ -177,3 +177,4 @@ D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.dll
 D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.pdb
 D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.genruntimeconfig.cache
 D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csproj.CopyComplete
+D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Home\GuestMessages.cshtml.g.cs

@@ -20,6 +20,8 @@ namespace BookStore.Data.Repositories
 
         public bool AddEdit(Category category)
         {
+            if (category == null) throw new NullReferenceException();
+
             try
             {
                 if (category.Id == 0)
@@ -35,7 +37,7 @@ namespace BookStore.Data.Repositories
                     return true;
                 }
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }
@@ -52,7 +54,7 @@ namespace BookStore.Data.Repositories
                 }
                 return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }

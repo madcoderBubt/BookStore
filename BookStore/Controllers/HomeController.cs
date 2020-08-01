@@ -15,10 +15,12 @@ namespace BookStore.Controllers
     {
         private readonly IBookRepository _bookRepository;
         private readonly ICategoryRepository _categoryRepository;
-        public HomeController(IBookRepository bookRepository, ICategoryRepository categoryRepository)
+        private readonly IGuestMessage _guestMessage;
+        public HomeController(IBookRepository bookRepository, ICategoryRepository categoryRepository, IGuestMessage guestMessage)
         {
             _bookRepository = bookRepository;
             _categoryRepository = categoryRepository;
+            _guestMessage = guestMessage;
         }
 
         public IActionResult Index()
@@ -47,6 +49,17 @@ namespace BookStore.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult SendMessage(GuestMessage message)
+        {
+            if (message != null)
+            {
+                if (_guestMessage.SendMessage(message))
+                    return View();
+            }
+            return null;
         }
 
         public IActionResult Privacy()

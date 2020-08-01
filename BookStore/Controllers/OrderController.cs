@@ -11,8 +11,8 @@ namespace BookStore.Controllers
 {
     public class OrderController : Controller
     {
-        public readonly IOrderRepository _orderRepository;
-        public readonly ShopingCart _shopingCart;
+        private readonly IOrderRepository _orderRepository;
+        private readonly ShopingCart _shopingCart;
 
         public OrderController(IOrderRepository orderRepository, ShopingCart shopingCart)
         {

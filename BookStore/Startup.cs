@@ -50,6 +50,7 @@ namespace BookStore
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IGuestMessage, GuestMessageRepo>();
 
             //For Shoping Cart
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

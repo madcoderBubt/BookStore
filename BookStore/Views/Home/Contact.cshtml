@@ -1,4 +1,5 @@
-﻿@{
+﻿@model GuestMessage
+@{
     ViewData["Title"] = "Contact";
     Layout = "_LayoutN";
 }
@@ -37,20 +38,20 @@
                 <div class="contact-form-wrap">
                     <h2 class="contact__title">Get in touch</h2>
                     <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. </p>
-                    <form id="contact-form" action="#" method="post">
+                    <form id="contact-form" action="/Home/SendMessage" method="post">
                         <div class="single-contact-form space-between">
-                            <input type="text" name="firstname" placeholder="First Name*">
-                            <input type="text" name="lastname" placeholder="Last Name*">
+                            <input type="text" asp-for="FirstName" placeholder="First Name*">
+                            <input type="text" asp-for="LastName" placeholder="Last Name*">
                         </div>
                         <div class="single-contact-form space-between">
-                            <input type="email" name="email" placeholder="Email*">
-                            <input type="text" name="website" placeholder="Website*">
+                            <input type="email" asp-for="Email" placeholder="Email*">
+                            <input type="text" asp-for="Website" placeholder="Website*">
                         </div>
                         <div class="single-contact-form">
-                            <input type="text" name="subject" placeholder="Subject*">
+                            <input type="text" asp-for="Subject" placeholder="Subject*">
                         </div>
                         <div class="single-contact-form message">
-                            <textarea name="message" placeholder="Type your message here.."></textarea>
+                            <textarea asp-for="Details" placeholder="Type your message here.."></textarea>
                         </div>
                         <div class="contact-btn">
                             <button type="submit">Contact Us</button>
