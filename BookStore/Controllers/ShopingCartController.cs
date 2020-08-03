@@ -56,6 +56,13 @@ namespace BookStore.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public RedirectToActionResult ClearCart()
+        {
+            _shopingCart.ClearCart();
+
+            return RedirectToAction("Index");
+        }
         
     }
 }

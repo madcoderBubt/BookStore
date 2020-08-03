@@ -49,7 +49,7 @@
                                         <td class="product-price"><span class="amount">@item.Book.Price.ToString("c")</span></td>
                                         <td class="product-quantity"><input type="number" value="@item.Amount"></td>
                                         <td class="product-subtotal">@(item.Book.Price * item.Amount).ToString("c")</td>
-                                        <td class="product-remove"><a href="#">X</a></td>
+                                        <td class="product-remove"><a asp-action="RemoveFromShopingCart" asp-route-bookId="@item.BookId">X</a></td>
                                     </tr>
                                 }
                             </tbody>
@@ -58,7 +58,7 @@
                 </form>
                 <div class="cartbox__btn">
                     <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                        <li><a href="#">Coupon Code</a></li>
+                        <li><a asp-controller="ShopingCart" asp-action="ClearCart">Clear Cart</a></li>
                         <li><a href="#" >Apply Code</a></li>
                         <li><a href="#">Update Cart</a></li>
                         <li><a asp-controller="Order" asp-action="Checkout">Check Out</a></li>

@@ -28,15 +28,17 @@ namespace BookStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel login)
         {
+            if (login == null) throw new NullReferenceException();
+
             if (!ModelState.IsValid)
             {
                 return View(login);
             }
 
-            var user = await _userManager.FindByNameAsync(login.UserName);
+            var user = await _userManager.FindByNameAsync(login.UserName).ConfigureAwait(false);
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false).ConfigureAwait(false);
                 if (result.Succeeded)
                 {
                     if (string.IsNullOrEmpty(login.ReturnUrl))
@@ -56,28 +58,38 @@ namespace BookStore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(LoginViewModel login)
+        public async Task<IActionResult> Register(RegisterViewModel register)
         {
+            if (register == null)
+                throw new NullReferenceException();
+
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser() { UserName = login.UserName };
-                var result = await _userManager.CreateAsync(user, login.Password);
+                var user = new IdentityUser() { UserName = register.UserName, Email = register.Email };
+                var result = await _userManager.CreateAsync(user, register.Password).ConfigureAwait(false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
                 }
+                else
+                {
+                    ModelState.AddModelError(result.Errors.FirstOrDefault().Code, result.Errors.FirstOrDefault().Description);
+                }
             }
-            return View(login);
+            return View(register);
         }
 
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync().ConfigureAwait(false);
             return RedirectToAction("Index", "Home");
         }
 
-
+        //public IActionResult Login(Uri returnUrl)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
