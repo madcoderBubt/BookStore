@@ -20,14 +20,14 @@ namespace BookStore.Controllers
             _shopingCart = shopingCart;
         }
 
-        [Authorize]
+        //[Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public IActionResult CheckOut(Order order)
         {
             var items = _shopingCart.GetShopingCartItems();

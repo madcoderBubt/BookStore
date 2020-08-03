@@ -20,7 +20,7 @@ namespace BookStore.Data.Repositories
         public void CreateOrder(Order order)
         {
             order.OrderedPlaced = DateTime.Now;
-            _storeContext.Orders.Add(order);
+            _storeContext.Orders.Add(order);    //Add Order
 
             var shopingCartItems = _shopingCart.ShopingCartItems;
             foreach (var item in shopingCartItems)
@@ -32,7 +32,7 @@ namespace BookStore.Data.Repositories
                     OrderId = order.Id,
                     Price = item.Book.Price
                 };
-                _storeContext.OrderDetails.Add(orderDetail);
+                _storeContext.OrderDetails.Add(orderDetail);    //Add Order Details
             }
             _storeContext.SaveChanges();
         }
