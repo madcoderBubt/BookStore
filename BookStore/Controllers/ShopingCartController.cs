@@ -44,7 +44,7 @@ namespace BookStore.Controllers
             {
                 _shopingCart.AddToShopingCart(selectedBook, 1);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Book", "Gallery", new { id = bookId });
         }
 
         public RedirectToActionResult RemoveFromShopingCart(int bookId)
