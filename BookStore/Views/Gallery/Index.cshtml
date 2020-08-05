@@ -27,7 +27,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
-                <div class="shop__sidebar">
+                <div class="">
+                    <aside class="wedget__categories pro--search">
+                        <div class="content-shopby">
+                            <div class="search-box">
+                                <form asp-controller="Gallery" asp-action="Index" method="post">
+                                    <input type="text" id="src_id" name="src" placeholder="Search Here ... ..."/>
+                                    <a href="#" onclick="SearchBook()"><i class="fa fa-search"></i></a>
+                                </form>                                
+                            </div>
+                        </div>
+                    </aside>
                     <aside class="wedget__categories poroduct--cat">
                         <h3 class="wedget__title">Product Categories</h3>
                         <ul>
@@ -47,7 +57,7 @@
                                                 <span>Price :</span><input type="text" id="amount" readonly="">
                                             </div>
                                             <div class="price--filter">
-                                                <a href="#" onclick="clickMe()">Filter</a>
+                                                <a href="#" onclick="FilterBook()">Filter</a>
                                             </div>
                                         </div>
                                     </div>
@@ -55,18 +65,9 @@
                             </div>
                         </div>
                     </aside>
-                    <aside class="wedget__categories poroduct--tag">
-                        <h3 class="wedget__title">Product Tags</h3>
-                        <ul>
-                            <li><a href="#">Biography</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Cookbooks</a></li>
-                            <li><a href="#">Health & Fitness</a></li>
-                            <li><a href="#">History</a></li>
-                        </ul>
-                    </aside>
                 </div>
             </div>
+            <!--Product Grid View Area-->
             <div class="col-lg-9 col-12 order-1 order-lg-2">
                 <div class="row">
                     <div class="col-lg-12">
@@ -90,49 +91,11 @@
                         </div>
                     </div>
                 </div>
+                @*Product View Area*@
                 <div class="tab__container">
                     <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
                         <div class="row">
-                            @foreach (var item in Model.Books)
-                            {
-                                <!-- Start Single Product -->
-                                <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <div class="product__thumb">
-                                        <a class="first__img" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="@item.ImgUrl" alt="product image"></a>
-                                        <a class="second__img animation1" asp-controller="Gallery" asp-action="Book" asp-route-id="@item.Id"><img src="~/images/books/2.jpg" alt="product image"></a>
-                                        <div class="hot__box">
-                                            <span class="hot-label">BEST SALLER</span>
-                                        </div>
-                                    </div>
-                                    <div class="product__content content--center">
-                                        <h4><a href="single-product.html">@item.Name</a></h4>
-                                        <ul class="prize d-flex">
-                                            <li>@item.Price</li>
-                                            <li class="old_prize">@item.PriceOffer</li>
-                                        </ul>
-                                        <div class="action">
-                                            <div class="actions_inner">
-                                                <ul class="add_to_links">
-                                                    <li><a class="cart" asp-action="AddToShopingCart" asp-controller="ShopingCart" asp-route-bookId="@item.Id"><i class="bi bi-shopping-bag4"></i></a></li>
-                                                    <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                                                    <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                                                    <li><a data-toggle="modal" onclick="quickView(@item.Id)" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product__hover--content">
-                                            <ul class="rating d-flex">
-                                                <li class="on"><i class="fa fa-star-o"></i></li>
-                                                <li class="on"><i class="fa fa-star-o"></i></li>
-                                                <li class="on"><i class="fa fa-star-o"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                            }
+                            @await Html.PartialAsync("_BookGallery",Model.Books)
                         </div>
                         @*<ul class="wn__pagination" id="paging">
                             <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
@@ -193,11 +156,16 @@
 <!-- End Shop Page -->
 @section scripts{ 
     <script type="text/javascript">
-        
 
-        function clickMe() {
+        function FilterBook() {
             var value = $("#amount").val();
             window.location = "/Gallery?c=@(Model.currentCategory)&fb=" + value;
         }
+
+        function SearchBook() {
+            var value = $("#src_id").val();
+            window.location = "/Gallery?c=@(Model.currentCategory)&src=" + value;
+        }
+
     </script>
 }

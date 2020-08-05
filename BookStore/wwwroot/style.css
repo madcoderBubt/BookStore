@@ -6255,3 +6255,26 @@ section.wn_contact_area {
   padding-bottom: 60px;
 }
 }
+
+/*Custom content*/
+.search-box{
+    margin-bottom: 2em;
+}
+.pro--search input[type="text"] {
+    position: relative;
+    width: 100%;
+    border: 1px solid #e59285;
+    outline: none;
+    height: 1.8em;
+    color: #e59285;
+}
+.pro--search input[type="text"]::placeholder {
+    color: #e59285;
+    opacity: .4;
+    padding-left: 2px;
+}
+.pro--search a {
+    position: absolute;
+    right: 22px;
+    color: #e59285;
+}

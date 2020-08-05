@@ -20,19 +20,3 @@ else
     <span><a id="logiLink" asp-action="Login" asp-controller="Account">Sign In</a></span>
     <span><a id="registerLink" asp-action="Register" asp-controller="Account">Create An Account</a></span>
 }
-
-@*@if (SignInManager.IsSignedIn(User))
-    {
-        <li><a href="#">@User.Identity.Name</a></li>
-        <li>
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
-            <form asp-controller="Account" asp-action="Logout" id="logoutForm" method="post">
-
-            </form>
-        </li>
-    }
-    else
-    {
-        <li><a id="registerLink" asp-action="Register" asp-controller="Account">Register</a></li>
-        <li><a id="logiLink" asp-action="Login" asp-controller="Account">Login</a></li>
-    }*@

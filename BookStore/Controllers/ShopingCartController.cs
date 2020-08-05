@@ -37,12 +37,12 @@ namespace BookStore.Controllers
         }
 
         // GET: ShopingCart/AddToShopingCart
-        public RedirectToActionResult AddToShopingCart(int bookId)
+        public RedirectToActionResult AddToShopingCart(int bookId, int qty = 1)
         {
             var selectedBook = _bookRepository.Books.FirstOrDefault(b => b.Id == bookId);
             if (selectedBook != null)
             {
-                _shopingCart.AddToShopingCart(selectedBook, 1);
+                _shopingCart.AddToShopingCart(selectedBook, qty);
             }
             return RedirectToAction("Book", "Gallery", new { id = bookId });
         }

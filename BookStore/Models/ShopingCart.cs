@@ -33,7 +33,7 @@ namespace BookStore.Models
             return new ShopingCart(context) { ShopingCartId = cartId };
         }
 
-        public void AddToShopingCart(Book book,int amount)
+        public void AddToShopingCart(Book book,int qty)
         {
             var shopingCartItem = _dbContext.ShopingCartItems.SingleOrDefault(
                 s => s.Book.Id == book.Id && s.ShopingCartId == ShopingCartId);
@@ -43,7 +43,7 @@ namespace BookStore.Models
                 shopingCartItem = new ShopingCartItem
                 {
                     ShopingCartId = ShopingCartId,
-                    Amount = 1,
+                    Amount = qty,
                     Book = book
                 };
                 _dbContext.ShopingCartItems.Add(shopingCartItem);

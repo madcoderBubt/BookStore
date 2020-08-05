@@ -23,7 +23,8 @@ namespace BookStore.Controllers
         }
 
         //GET: Book
-        public ActionResult Index(string c, string fb, int pn = 1)
+        //c => Category | fb => FilterBook | pn => pageNumber
+        public ActionResult Index(string c, string fb, string src, int pn = 1)
         {
             int totalPages = 6;
             int lengthItem;
@@ -36,6 +37,7 @@ namespace BookStore.Controllers
 
             string _currentCategory = string.Empty;
 
+            //getting books by catergories
             if (string.IsNullOrEmpty(c) || c == "All Books")
             {
                 books = _bookRepository.Books;
@@ -48,6 +50,14 @@ namespace BookStore.Controllers
                 _currentCategory = c;
             }
 
+            //searching for specific book
+            if (!string.IsNullOrEmpty(src))
+            {
+                books1 = books.Where(f => f.Name.Contains(src, StringComparison.InvariantCultureIgnoreCase));
+                books = books1;
+            }
+
+            //filtering books by price range
             if (!string.IsNullOrEmpty(fb))
             {
                 string[] s = fb.Split('-');
@@ -74,7 +84,9 @@ namespace BookStore.Controllers
                 currentPage = pn,
                 totalPages = Convert.ToInt32(Math.Ceiling(lengthItem / (double)totalPages)),
                 pageSize = totalPages,
-                Categories = _categoryRepository.Categories.OrderBy(s => s.Name)
+                Categories = _categoryRepository.Categories
+                    .Take(15)
+                    .OrderBy(s => s.Name)
             };
 
             return View(galleryView);
@@ -86,7 +98,19 @@ namespace BookStore.Controllers
 
             var book = _bookRepository.GetBookById(id);
 
-            return View(book);
+            BookViewModel bookView = new BookViewModel
+            {
+                Book = book,
+                RelatedBooks = _bookRepository.Books
+                    .Where(f => f.CategoryId == book.CategoryId)
+                    .Take(3)
+                    .OrderBy(s=>s.Name),
+                Categories = _categoryRepository.Categories
+                    .Take(15)
+                    .OrderBy(s => s.Name)
+            };
+
+            return View(bookView);
         }
     }
 }
