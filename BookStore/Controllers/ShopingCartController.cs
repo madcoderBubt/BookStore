@@ -59,6 +59,8 @@ namespace BookStore.Controllers
 
         public RedirectToActionResult ClearCart()
         {
+            if(_shopingCart.ShopingCartItems != null)
+                _shopingCart.ShopingCartItems = _shopingCart.GetShopingCartItems();
             _shopingCart.ClearCart();
 
             return RedirectToAction("Index");

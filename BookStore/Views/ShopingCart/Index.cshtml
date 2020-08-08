@@ -48,7 +48,7 @@
                                         <td class="product-name"><a href="#">@item.Book.Name</a></td>
                                         <td class="product-price"><span class="amount">@item.Book.Price.ToString("c")</span></td>
                                         <td class="product-quantity"><input type="number" value="@item.Amount"></td>
-                                        <td class="product-subtotal">@(item.Book.Price * item.Amount).ToString("c")</td>
+                                        <td class="product-subtotal">@((item.Book.Price * item.Amount).ToString("c"))</td>
                                         <td class="product-remove"><a asp-action="RemoveFromShopingCart" asp-route-bookId="@item.BookId">X</a></td>
                                     </tr>
                                 }

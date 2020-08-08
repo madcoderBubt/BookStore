@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Data.Interface;
 using BookStore.Models;
+using BookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,20 @@ namespace BookStore.Controllers
         //[Authorize]
         public IActionResult Checkout()
         {
-            return View();
+            var items = _shopingCart.GetShopingCartItems();
+            _shopingCart.ShopingCartItems = items;
+
+            if (_shopingCart.ShopingCartItems.Count == 0)
+            {
+                ModelState.AddModelError("", "Cart is Empty. Add some Books first.");
+            }
+
+            OrderViewModel orderView = new OrderViewModel
+            {
+                ShopingCart = _shopingCart,
+                ShopingCartTotal = _shopingCart.GetShopingCartTotal()
+            };
+            return View(orderView);
         }
 
         [HttpPost]
@@ -32,6 +46,8 @@ namespace BookStore.Controllers
         {
             var items = _shopingCart.GetShopingCartItems();
             _shopingCart.ShopingCartItems = items;
+
+            if (order == null) throw new NullReferenceException();
 
             if (_shopingCart.ShopingCartItems.Count == 0)
             {
@@ -45,9 +61,9 @@ namespace BookStore.Controllers
                 _orderRepository.CreateOrder(order);
                 _shopingCart.ClearCart();
 
-                return RedirectToAction("CheckoutComplete");
+                return Json(new { success = true, message = "Saved Successfull" });
             }
-            return View();
+            return Json(new { success = false, message = "Saved Unsuccessfull" });
         }
 
         public IActionResult CheckoutComplete()

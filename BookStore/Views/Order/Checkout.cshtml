@@ -1,4 +1,4 @@
-﻿@model BookStore.Models.Order
+﻿@model OrderViewModel
 @{
     ViewData["Title"] = "Checkout";
     Layout = "_LayoutN";
@@ -25,7 +25,7 @@
 <!-- Start Checkout Area -->
 <section class="wn__checkout__area section-padding--lg bg__white">
     <div class="container">
-        <div class="row">
+        @*<div class="row">
             <div class="col-lg-12">
                 <div class="wn_checkout_wrap">
                     <div class="checkout_info">
@@ -69,50 +69,53 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="row">
             <div class="col-lg-6 col-12">
                 <div class="customer_details">
                     <h3>Billing details</h3>
                     <div class="customar__field">
-                        <div class="margin_between">
-                            <div class="input_box space_between">
-                                <label asp-for="FirstName">First name <span>*</span></label>
-                                <input asp-for="FirstName" type="text">
+                        <form id="orderForm">
+                            <div class="margin_between">
+                                <input type="hidden" name="Id" value="0" />
+                                <div class="input_box space_between">
+                                    <label asp-for="Order.FirstName">First name <span>*</span></label>
+                                    <input name="FirstName" type="text">
+                                </div>
+                                <div class="input_box space_between">
+                                    <label asp-for="Order.LastName">last name <span>*</span></label>
+                                    <input type="text" name="LastName">
+                                </div>
                             </div>
-                            <div class="input_box space_between">
-                                <label asp-for="LastName">last name <span>*</span></label>
-                                <input type="text" asp-for="LastName">
+                            <div class="input_box">
+                                <label asp-for="Order.Country">Country <span>*</span></label>
+                                <input type="text" name="Country">
                             </div>
-                        </div>
-                        <div class="input_box">
-                            <label asp-for="Country">Country <span>*</span></label>
-                            <input type="text" asp-for="Country">
-                        </div>
-                        <div class="input_box">
-                            <label asp-for="Address">Address <span>*</span></label>
-                            <input type="text" asp-for="Address" placeholder="Street address">
-                        </div>
-                        <div class="input_box">
-                            <input type="text" asp-for="State" placeholder="State">
-                        </div>
-                        <div class="input_box">
-                            <label asp-for="ZipCode">Postcode / ZIP <span>*</span></label>
-                            <input type="text" asp-for="ZipCode">
-                        </div>
-                        <div class="margin_between">
-                            <div class="input_box space_between">
-                                <label asp-for="PhoneNumber">Phone <span>*</span></label>
-                                <input type="text" asp-for="PhoneNumber">
+                            <div class="input_box">
+                                <label asp-for="Order.Address">Address <span>*</span></label>
+                                <input type="text" name="Address" placeholder="Street address">
                             </div>
+                            <div class="input_box">
+                                <input type="text" name="State" placeholder="State">
+                            </div>
+                            <div class="input_box">
+                                <label asp-for="Order.ZipCode">Postcode / ZIP <span>*</span></label>
+                                <input type="text" name="ZipCode">
+                            </div>
+                            <div class="margin_between">
+                                <div class="input_box space_between">
+                                    <label asp-for="Order.PhoneNumber">Phone <span>*</span></label>
+                                    <input type="text" name="PhoneNumber">
+                                </div>
 
-                            <div class="input_box space_between">
-                                <label asp-for="Email">Email address <span>*</span></label>
-                                <input type="email" asp-for="Email">
+                                <div class="input_box space_between">
+                                    <label asp-for="Order.Email">Email address <span>*</span></label>
+                                    <input type="email" name="Email">
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="create__account">
+                    @*<div class="create__account">
                         <div class="wn__accountbox">
                             <input class="input-checkbox" name="createaccount" value="1" type="checkbox">
                             <span>Create an account ?</span>
@@ -123,6 +126,9 @@
                                 <input type="text" placeholder="password">
                             </form>
                         </div>
+                    </div>*@
+                    <div class="create_order">
+                        <button type="button" onclick="SubmitOrder()" class="btn btn-light w--100">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -134,29 +140,25 @@
                         <li>Total</li>
                     </ul>
                     <ul class="order_product">
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
+                        @foreach (var item in Model.ShopingCart.ShopingCartItems)
+                        {
+                            <li>@item.Book.Name × @item.Amount<span>$@(item.Amount*item.Book.Price)</span></li>
+                        }
                     </ul>
                     <ul class="shipping__method">
-                        <li>Cart Subtotal <span>$48.00</span></li>
+                        <li>Cart Subtotal <span>$@Model.ShopingCartTotal</span></li>
                         <li>
                             Shipping
                             <ul>
                                 <li>
                                     <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
-                                    <label>Flat Rate: $48.00</label>
-                                </li>
-                                <li>
-                                    <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
-                                    <label>Flat Rate: $48.00</label>
+                                    <label>Flat Rate: $10.00</label>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="total__amount">
-                        <li>Order Total <span>$223.00</span></li>
+                        <li>Order Total <span>$@(Model.ShopingCartTotal+10)</span></li>
                     </ul>
                 </div>
                 <div id="accordion" class="checkout_accordion mt--30" role="tablist">
@@ -207,3 +209,28 @@
     </div>
 </section>
 <!-- End Checkout Area -->
+@section scripts{ 
+    
+    <script>
+        function SubmitOrder() {
+            var obj = $("#orderForm").serialize();
+            //var obj = new FormData(document.getElementById("orderForm"));
+
+            $.ajax({
+                type: "post",
+                url: "/Order/Checkout",
+                data: obj,
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                //processData: false,
+                success: function (data) {
+                    if (data.success) {
+                        alert(data.message);
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            });
+        }
+    </script>
+}
