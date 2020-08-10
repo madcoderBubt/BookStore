@@ -7,9 +7,5 @@ namespace BookStore.Models.ViewModels
 {
     public class OrderViewModel
     {
-        public Order Order { get; set; }
-        //public ShopingCartViewModel ShopingCartVM { get; set; }
-        public ShopingCart ShopingCart { get; set; }
-        public decimal ShopingCartTotal { get; set; }
     }
 }

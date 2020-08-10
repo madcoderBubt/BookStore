@@ -1,0 +1,9 @@
+﻿@model BookStore.Models.Order
+@{ 
+    ViewData["Title"] = "Details";
+} 
+
+@foreach (var item in Model.OrderLines)
+{
+    <h1>@item.Price x @item.Amount => @Model.OrderTotal</h1>
+}

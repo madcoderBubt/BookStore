@@ -180,3 +180,5 @@ D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\BookStore.csproj.C
 D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Home\GuestMessages.cshtml.g.cs
 D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register1.cshtml.g.cs
 D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Views\Gallery\_BookGallery.cshtml.g.cs
+D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Order\Index.cshtml.g.cs
+D:\VS 19 Projects\BookStore\BookStore\obj\Debug\netcoreapp2.1\Razor\Areas\Dashboard\Views\Order\Details.cshtml.g.cs

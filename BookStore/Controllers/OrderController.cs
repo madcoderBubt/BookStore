@@ -32,7 +32,7 @@ namespace BookStore.Controllers
                 ModelState.AddModelError("", "Cart is Empty. Add some Books first.");
             }
 
-            OrderViewModel orderView = new OrderViewModel
+            CheckoutViewModel orderView = new CheckoutViewModel
             {
                 ShopingCart = _shopingCart,
                 ShopingCartTotal = _shopingCart.GetShopingCartTotal()

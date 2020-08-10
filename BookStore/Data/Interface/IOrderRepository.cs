@@ -8,6 +8,10 @@ namespace BookStore.Data.Interface
 {
     public interface IOrderRepository
     {
+        IEnumerable<Order> Orders { get; }
+        IEnumerable<OrderDetail> GetOrderDetails(int orderId);
+        Order GetOrderById(int id);
+
         void CreateOrder(Order order);
     }
 }

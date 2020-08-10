@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="tile-title-w-btn">
+                <h3 class="title">Order Lists</h3>
+                @*<p><a class="btn btn-primary icon-btn" href="#"><i class="fa fa-plus"></i>Add Item	</a></p>*@
+            </div>
+            <div class="tile-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Customer Name(full)</th>
+                                <th>Address Detail</th>
+                                <th>Contact Info</th>
+                                <th>Order Total</th>
+                                <th>Order Date</th>
+                                <th>Buttons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Author</td>
+                                        <td>@item.Details</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.Category.Name</td>
+                                        <td>
+                                            <div class="btn-group-sm" style="width:90px">
+                                                <a class="btn btn-primary" onclick="PopupForm('Dashboard/Book/_AddOrEdit/@item.Id')" href="#"><i class="fa fa-lg fa-edit"></i></a>
+                                                <a class="btn btn-danger" href="#" onclick=""><i class="fa fa-lg fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/plugins/jquery-ui.js"></script>
+    <script type="text/javascript" src="~/js/plugins/sweetalert.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins/bootstrap-notify.min.js"></script>
+
+    <script type="text/javascript">
+        var dataTable /*= $('#sampleTable').DataTable()*/;
+
+        $(document).ready(function () {
+            dataTable = $('#sampleTable').DataTable({
+                processing: true,
+                //serverSide: true,
+                ajax: {
+                    url: "/Dashboard/Order/GetData",
+                    type: "Get",
+                    contentType: "application/Json",
+                    dataType: "Json"
+                },
+                columns: [
+                    { data: "id" },
+                    {
+                        data: "firstName",
+                        render: function (data, type, row) {
+                            return data + " " + row.lastName;
+                        }
+                    },
+                    {
+                        data: "address",
+                        render: function (data, type, row) {
+                            return data + " " + row.state + "-" + row.zipCode+", "+ row.country;
+                        }
+                    },
+                    {
+                        data: "email",
+                        render: function (data, type, row) {
+                            return "Email: <a href='mailto:" + data + "'>" + data + "</a></br>" +
+                                "Phone: <a href='tel:" + row.phoneNumber + "'>" + row.phoneNumber+"</a>";
+                        }
+                    },
+                    { data: "orderTotal" },
+                    { data: "orderedPlaced" },
+                    {
+                        data: "id",
+                        "render": function (data) {
+                            return "<div class='btn-group' style='width:90px'>"
+                                + "<a class='btn btn-danger' href='/Dashboard/Order/Details/" + data + "'><i class='fa fa-lg fa-reply'></i>View</a></div>";
+                        },
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                language: {
+                    infoEmpty: "No records found!",
+                    emptyTable: "No Data Found! Please Click <b>Add New</b> to add.",
+                },
+
+            });
+        });
+    </script>    
+
+}
