@@ -119,20 +119,20 @@
             <img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
             <div>
                 <p class="app-sidebar__user-name">@User.Identity.Name</p>
-                <p class="app-sidebar__user-designation">.NET Developer</p>
+                <p class="app-sidebar__user-designation">Admin Access</p>
             </div>
         </div>
         <ul class="app-menu">
-            <li><a class="app-menu__item active" asp-area="Dashboard" asp-controller="Home" asp-action=""><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-            <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Products</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <li><a class="app-menu__item @(ViewBag.Flag=="dashboard"?"active":"")" asp-area="Dashboard" asp-controller="Home" asp-action=""><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+            <li class="treeview @(ViewBag.Flag=="product"?"is-expanded":"")">
+                <a class="app-menu__item @(ViewBag.Flag=="product"?"active":"")" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Products</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a class="treeview-item" asp-controller="Home" asp-action="Categories"><i class="icon fa fa-bar-chart"></i>Categories</a></li>
-                    <li><a class="treeview-item" asp-controller="Home" asp-action="Books" rel="noopener"><i class="icon fa fa-book"></i>Books</a></li>
+                    <li><a class="treeview-item @(ViewBag.subFlag=="category"?"active":"")" asp-controller="Home" asp-action="Categories"><i class="icon fa fa-bar-chart"></i>Categories</a></li>
+                    <li><a class="treeview-item @(ViewBag.subFlag=="book"?"active":"")" asp-controller="Home" asp-action="Books" rel="noopener"><i class="icon fa fa-book"></i>Books</a></li>
                 </ul>
             </li>
-            <li><a class="app-menu__item" asp-controller="Home" asp-action="GuestMessages"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Messages</span></a></li>
-            <li><a class="app-menu__item" asp-controller="Order" asp-action=""><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Order Lists</span></a></li>
+            <li><a class="app-menu__item @(ViewBag.Flag=="message"?"active":"")" asp-controller="Home" asp-action="GuestMessages"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Messages</span></a></li>
+            <li><a class="app-menu__item @(ViewBag.Flag=="order"?"active":"")" asp-controller="Order" asp-action="" ><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Order Lists</span></a></li>
         </ul>
     </aside>
 

@@ -20,7 +20,8 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Subject</th>
-                                <th>Email</th>
+                                <th>Details</th>
+                                <th>Website</th>
                                 <th>Buttons</th>
                             </tr>
                         </thead>
@@ -72,15 +73,26 @@
             },
             columns: [
                 { data: "id" },
-                { data: "firstName" },
+                {
+                    data: "firstName",
+                    render: function (data, type, row) {
+                        return data + " " + row.lastName;
+                    }
+                },
                 { data: "subject" },
-                { data: "email" },
+                { data: "details" },
+                {
+                    data: "website",
+                    render: function (data,type,row) {
+                        return "<a href='" + data + "' target='_blank'>Visit Site</a><br>" + "<a href='mailto:" + row.email + "'>Mail Now</a><br>";
+                    }
+                },
                 {
                     data: "id",
-                    "render": function (data) {
+                    "render": function (data,type,row) {
                         return "<div class='btn-group' style='width:90px'>"
                             + "<a class='btn btn-danger' href='#' onclick=deleteForm('" + data + "')><i class='fa fa-lg fa-trash'></i>Delete</a>"
-                            + "<a class='btn btn-danger' href='mailto:"+data+"'><i class='fa fa-lg fa-reply'></i>Reply</a></div>";
+                            + "<a class='btn btn-danger' href='mailto:"+row.email+"'><i class='fa fa-lg fa-reply'></i>Reply</a></div>";
                     },
                     orderable: false,
                     searchable: false

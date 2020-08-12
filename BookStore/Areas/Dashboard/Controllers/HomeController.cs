@@ -17,6 +17,7 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Flag = "dashboard";
             //var list = _categoryRepo.Categories;
             return View();
         }
@@ -24,6 +25,8 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Books
         public IActionResult Categories()
         {
+            ViewBag.Flag = "product";
+            ViewBag.subFlag = "category";
             //var listItem = _categoryRepo.Categories;
             //return View(listItem);
             return View();
@@ -32,12 +35,15 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Books
         public IActionResult Books()
         {
+            ViewBag.Flag = "product";
+            ViewBag.subFlag = "book";
             //var listItem = _bookRepo.Books;
             return View();
         }
 
         public IActionResult GuestMessages()
         {
+            ViewBag.Flag = "message";
             return View();
         }
     }

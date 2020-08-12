@@ -1,9 +1,92 @@
-﻿@model BookStore.Models.Order
+﻿@model OrderViewModel
 @{ 
     ViewData["Title"] = "Details";
-} 
+}
 
-@foreach (var item in Model.OrderLines)
-{
-    <h1>@item.Price x @item.Amount => @Model.OrderTotal</h1>
+<div class="row" id="printSample">
+    <div class="col-md-12">
+        <div class="tile">
+            <section class="invoice">
+                <div class="row mb-4">
+                    <div class="col-6">
+                        <h2 class="page-header"><i class="fa fa-"></i> Online BookStore</h2>
+                    </div>
+                    <div class="col-6">
+                        <h5 class="text-right">Date: @Model.Order.OrderedPlaced.ToLocalTime()</h5>
+                    </div>
+                </div>
+                <div class="row invoice-info">
+                    <div class="col-4">
+                        From,
+                        <address>
+                            <strong>Online BookStore</strong><br>
+                            Rupnagar<br>Mirpur-1213<br>
+                            Dhaka<br>
+                            Email: cmptengineering@gmail.com
+                        </address>
+                    </div>
+                    <div class="col-4">
+                        To,
+                        <address>
+                            <strong>@Model.Order.FirstName @Model.Order.LastName</strong><br>
+                            @Model.Order.Address<br>
+                            @Model.Order.State-@Model.Order.ZipCode,
+                            @Model.Order.Country<br>
+                            Phone: @Model.Order.PhoneNumber<br>
+                            Email: @Model.Order.Email
+                        </address>
+                    </div>
+                    <div class="col-4"><b>Invoice #007612</b><br><br><b>Order ID:</b> @Model.Order.Id<br><b>Payment Due:</b> @Model.Order.OrderTotal<br></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Serial #</th>
+                                    <th>Qty</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Subtotal</th>
+                                    <th>Buttons</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Order.OrderLines)
+                                {
+                                <tr>
+                                    <td>@item.BookId</td>
+                                    <td>@item.Amount</td>
+                                    <td>@Model.Books.Where(f => f.Id == item.BookId).FirstOrDefault().Name</td>
+                                    <td>@item.Price</td>
+                                    <td>@Model.Books.Where(f => f.Id == item.BookId).FirstOrDefault().Details</td>
+                                    <td>$@(item.Price * item.Amount)</td>
+                                    <td><a href="~/Gallery/Book/@item.BookId" target="_blank" class="btn btn-info">Product Details</a></td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row d-print-none mt-2">
+                    <div class="col-12 text-right"><a class="btn btn-primary" href="#" onclick="printInvoice()"><i class="fa fa-print"></i> Print</a></div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+@section scripts{ 
+    <script type="text/javascript">
+
+        function printInvoice() {
+            console.log("playyyyy");
+            w = window.open();
+            w.document.write($("#printSample").html());
+            w.print();
+            w.close();
+        }
+
+    </script>
 }

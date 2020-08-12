@@ -7,5 +7,7 @@ namespace BookStore.Models.ViewModels
 {
     public class OrderViewModel
     {
+        public Order Order { get; set; }
+        public IEnumerable<Book> Books { get; set; }
     }
 }
