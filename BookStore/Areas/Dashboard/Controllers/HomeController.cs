@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data.Interface;
+using BookStore.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +41,7 @@ namespace BookStore.Areas.Dashboard.Controllers
             return View();
         }
 
-        public IActionResult GuestMessages()
+        public IActionResult Messages()
         {
             ViewBag.Flag = "message";
             return View();

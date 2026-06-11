@@ -1,29 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Models;
+using BookStore.Domain.Entities;
+using BookStore.Application.Interfaces;
+using BookStore.Application.ViewModels;
 
-namespace BookStore.Models.Components
+namespace BookStore.Components
 {
     public class ShopingCartSummary: ViewComponent
     {
-        private readonly ShopingCart _shopingCart;
-        public ShopingCartSummary(ShopingCart shopingCart)
+        private readonly IShoppingCartService _shopingCartService;
+        public ShopingCartSummary(IShoppingCartService shopingCartService)
         {
-            _shopingCart = shopingCart;
+            _shopingCartService = shopingCartService;
         }
 
         public IViewComponentResult Invoke()
         {
-            _shopingCart.ShopingCartItems = _shopingCart.GetShopingCartItems();
-
-            //_shopingCart.ShopingCartItems = new List<ShopingCartItem> { new ShopingCartItem(), new ShopingCartItem() };
-            var shopingCartVM = new ViewModels.ShopingCartViewModel
+            var items = _shopingCartService.GetShoppingCartItems();
+            var shopingCartVM = new ShopingCartViewModel
             {
-                ShopingCart = _shopingCart,
-                ShopingCartTotal = _shopingCart.GetShopingCartTotal()
+                ShopingCartItems = items,
+                ShopingCartTotal = _shopingCartService.GetShoppingCartTotal()
             };
             return View(shopingCartVM);
         }

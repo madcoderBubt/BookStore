@@ -1,9 +1,9 @@
 ﻿@model ShopingCartViewModel
 
-@if (Model.ShopingCart.ShopingCartItems.Count >= 0)
+@if (Model.ShopingCartItems.Count >= 0)
 {
     <li class="shopcart">
-        <a class="cartbox_active" href="#"><span class="product_qun">@Model.ShopingCart.ShopingCartItems.Count</span></a>
+        <a class="cartbox_active" href="#"><span class="product_qun">@Model.ShopingCartItems.Count</span></a>
         <!-- Start Shopping Cart -->
         <div class="block-minicart minicart__active">
             <div class="minicart-content-wrapper">
@@ -11,7 +11,7 @@
                     <span>close</span>
                 </div>
                 <div class="items-total d-flex justify-content-between">
-                    <span>@Model.ShopingCart.ShopingCartItems.Count items</span>
+                    <span>@Model.ShopingCartItems.Count items</span>
                     <span>Cart Subtotal</span>
                 </div>
                 <div class="total_amount text-right">
@@ -87,7 +87,7 @@
     <a asp-controller="ShopingCart">
         <span class="glyphicon glyphicon-shopping-cart"></span>
         <span class="cart-status">
-            @Model.ShopingCart.ShopingCartItems.Count
+            @Model.ShopingCartItems.Count
         </span>
     </a>
 </li>*@

@@ -1,4 +1,4 @@
-﻿using BookStore.Data.Interface;
+using BookStore.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +8,9 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using BookStore.Domain.Entities;
+using BookStore.Application.Interfaces;
+using BookStore.Application.DTOs;
 
 namespace BookStore.Areas.Dashboard.Controllers
 {
@@ -17,13 +20,13 @@ namespace BookStore.Areas.Dashboard.Controllers
     {
         private readonly IBookRepository _bookRepo;
         private readonly ICategoryRepository _categoryRepo;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IBookService _bookService;
 
-        public BookController(IBookRepository book, ICategoryRepository category, IHostingEnvironment environment)
+        public BookController(IBookRepository book, ICategoryRepository category, IBookService bookService)
         {
             _bookRepo = book;
             _categoryRepo = category;
-            _hostingEnvironment = environment;
+            _bookService = bookService;
         }
 
         //Get: /Dashboard/Book/GetData
@@ -63,16 +66,13 @@ namespace BookStore.Areas.Dashboard.Controllers
 
         //Post: /Dashboard/Book/_AddOrEdit
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public IActionResult AddOrEdit(Models.Book book)
+        public IActionResult AddOrEdit(BookDto book)
         {
             try
             {
-                // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    
-                    if (_bookRepo.AddOrEdit(book))
+                    if (_bookService.AddOrEdit(book))
                     {
                         return Json(new { success = true, message = "Saved Successfull" });
                     }
@@ -86,14 +86,13 @@ namespace BookStore.Areas.Dashboard.Controllers
             }
             catch (Exception)
             {
-                //return Json(new { success = false, message = e.Message });
                 throw;
             }
         }
 
         public ActionResult Delete(int id)
         {
-            if (_bookRepo.Delete(id))
+            if (_bookService.Delete(id))
             {
                 return Json(new { success = true, message = "Delete Successfull" });
             }

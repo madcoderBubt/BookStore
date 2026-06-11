@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data.Interface;
-using BookStore.Models;
-using BookStore.Models.ViewModels;
+using BookStore.Domain.Interfaces;
+using BookStore.Domain.Entities;
+using BookStore.Application.ViewModels;
+using BookStore.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,29 +14,28 @@ namespace BookStore.Controllers
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly ShopingCart _shopingCart;
+        private readonly IShoppingCartService _shopingCartService;
 
-        public OrderController(IOrderRepository orderRepository, ShopingCart shopingCart)
+        public OrderController(IOrderRepository orderRepository, IShoppingCartService shopingCartService)
         {
             _orderRepository = orderRepository;
-            _shopingCart = shopingCart;
+            _shopingCartService = shopingCartService;
         }
 
         //[Authorize]
         public IActionResult Checkout()
         {
-            var items = _shopingCart.GetShopingCartItems();
-            _shopingCart.ShopingCartItems = items;
+            var items = _shopingCartService.GetShoppingCartItems();
 
-            if (_shopingCart.ShopingCartItems.Count == 0)
+            if (items.Count == 0)
             {
                 ModelState.AddModelError("", "Cart is Empty. Add some Books first.");
             }
 
             CheckoutViewModel orderView = new CheckoutViewModel
             {
-                ShopingCart = _shopingCart,
-                ShopingCartTotal = _shopingCart.GetShopingCartTotal()
+                ShopingCartItems = items,
+                ShopingCartTotal = _shopingCartService.GetShoppingCartTotal()
             };
             return View(orderView);
         }
@@ -44,22 +44,21 @@ namespace BookStore.Controllers
         //[Authorize]
         public IActionResult CheckOut(Order order)
         {
-            var items = _shopingCart.GetShopingCartItems();
-            _shopingCart.ShopingCartItems = items;
+            var items = _shopingCartService.GetShoppingCartItems();
 
             if (order == null) throw new NullReferenceException();
 
-            if (_shopingCart.ShopingCartItems.Count == 0)
+            if (items.Count == 0)
             {
                 ModelState.AddModelError("", "Cart is Empty. Add some Books first.");
             }
             if (ModelState.IsValid)
             {
                 order.OrderedPlaced = DateTime.Now;
-                order.OrderTotal = _shopingCart.GetShopingCartTotal();
+                order.OrderTotal = _shopingCartService.GetShoppingCartTotal();
 
                 _orderRepository.CreateOrder(order);
-                _shopingCart.ClearCart();
+                _shopingCartService.ClearCart();
 
                 return Json(new { success = true, message = "Saved Successfull" });
             }

@@ -1,4 +1,4 @@
-﻿using BookStore.Data.Interface;
+﻿using BookStore.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

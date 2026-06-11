@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data.Interface;
+using BookStore.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using BookStore.Domain.Entities;
 
 namespace BookStore.Areas.Dashboard.Controllers
 {
@@ -23,14 +24,14 @@ namespace BookStore.Areas.Dashboard.Controllers
         // GET: Dashboard/Category/GetData
         public ActionResult GetData()
         {
-            List<Models.Category> categories = _categoryRepo.Categories.ToList();
+            List<BookStore.Domain.Entities.Category> categories = _categoryRepo.Categories.ToList();
             return Json(new { data = categories });
         }
 
         // POST: Category/Create
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public IActionResult _AddOrEdit(Models.Category category)
+        public IActionResult _AddOrEdit(BookStore.Domain.Entities.Category category)
         {
             if (!ModelState.IsValid)
             {

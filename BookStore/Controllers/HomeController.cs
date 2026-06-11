@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BookStore.Models;
-using BookStore.Data.Interface;
-using BookStore.Models.ViewModels;
-using BookStore.Data;
+using BookStore.Domain.Entities;
+using BookStore.Domain.Interfaces;
+using BookStore.Application.ViewModels;
+using BookStore.Infrastructure.Data;
 
 namespace BookStore.Controllers
 {
@@ -15,8 +15,8 @@ namespace BookStore.Controllers
     {
         private readonly IBookRepository _bookRepository;
         private readonly ICategoryRepository _categoryRepository;
-        private readonly IGuestMessage _guestMessage;
-        public HomeController(IBookRepository bookRepository, ICategoryRepository categoryRepository, IGuestMessage guestMessage)
+        private readonly IMessageRepository _guestMessage;
+        public HomeController(IBookRepository bookRepository, ICategoryRepository categoryRepository, IMessageRepository guestMessage)
         {
             _bookRepository = bookRepository;
             _categoryRepository = categoryRepository;
@@ -52,7 +52,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendMessage(GuestMessage message)
+        public IActionResult SendMessage(Message message)
         {
             if (message != null)
             {
