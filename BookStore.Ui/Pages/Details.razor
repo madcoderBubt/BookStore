@@ -1,0 +1,53 @@
+@page "/details/{Id:int}"
+@inject HttpClient Http
+@inject BookStore.Ui.Services.ICartService CartService
+
+<div class="container mt-4">
+    @if (book == null)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@book.ImgUrl" class="img-fluid rounded shadow" alt="@book.Name">
+            </div>
+            <div class="col-md-6">
+                <h1 class="display-5">@book.Name</h1>
+                <p class="text-muted mb-4">by @book.Author</p>
+                <hr>
+                <h3 class="text-primary mb-3">$@book.Price</h3>
+                <p class="lead">@book.Details</p>
+
+                <div class="mt-5">
+                    <button class="btn btn-primary btn-lg px-5" @onclick="AddToCart">Add to Cart</button>
+                    <a href="/" class="btn btn-outline-secondary btn-lg ms-2">Back to List</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private BookDto book;
+
+    protected override async Task OnInitializedAsync()
+    {
+        book = await Http.GetFromJsonAsync<BookDto>($"api/books/{Id}");
+    }
+
+    private async Task AddToCart()
+    {
+        var cartId = await CartService.GetCartId();
+        await Http.PostAsync($"api/shoppingcart/{cartId}/add/{Id}", null);
+        // Navigate to cart or show success
+    }
+}
