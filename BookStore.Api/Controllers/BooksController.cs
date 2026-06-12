@@ -1,5 +1,7 @@
+using BookStore.Domain.Entities;
 using BookStore.Domain.Interfaces;
 using BookStore.Shared.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Api.Controllers
@@ -63,6 +65,57 @@ namespace BookStore.Api.Controllers
             };
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult CreateBook([FromBody] BookDto bookDto)
+        {
+            var book = new Book
+            {
+                Name = bookDto.Name,
+                Author = bookDto.Author,
+                Details = bookDto.Details,
+                ImgUrl = bookDto.ImgUrl,
+                Active = bookDto.Active,
+                Price = bookDto.Price,
+                PriceOffer = bookDto.PriceOffer,
+                CategoryId = bookDto.CategoryId
+            };
+
+            _bookRepository.AddOrEdit(book);
+            return CreatedAtAction(nameof(GetBook), new { id = book.Id }, bookDto);
+        }
+
+        [HttpPut("{id}")]
+        [Authorize]
+        public IActionResult UpdateBook(int id, [FromBody] BookDto bookDto)
+        {
+            var book = _bookRepository.GetBookById(id);
+            if (book == null) return NotFound();
+
+            book.Name = bookDto.Name;
+            book.Author = bookDto.Author;
+            book.Details = bookDto.Details;
+            book.ImgUrl = bookDto.ImgUrl;
+            book.Active = bookDto.Active;
+            book.Price = bookDto.Price;
+            book.PriceOffer = bookDto.PriceOffer;
+            book.CategoryId = bookDto.CategoryId;
+
+            _bookRepository.AddOrEdit(book);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public IActionResult DeleteBook(int id)
+        {
+            var book = _bookRepository.GetBookById(id);
+            if (book == null) return NotFound();
+
+            _bookRepository.Delete(id);
+            return NoContent();
         }
     }
 }

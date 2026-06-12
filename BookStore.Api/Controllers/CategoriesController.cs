@@ -1,5 +1,7 @@
+using BookStore.Domain.Entities;
 using BookStore.Domain.Interfaces;
 using BookStore.Shared.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Api.Controllers
@@ -26,6 +28,43 @@ namespace BookStore.Api.Controllers
             }).ToList();
 
             return Ok(categories);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult CreateCategory([FromBody] CategoryDto categoryDto)
+        {
+            var category = new Category
+            {
+                Name = categoryDto.Name,
+                Description = categoryDto.Description
+            };
+            _categoryRepository.AddEdit(category);
+            return Ok(categoryDto);
+        }
+
+        [HttpPut("{id}")]
+        [Authorize]
+        public IActionResult UpdateCategory(int id, [FromBody] CategoryDto categoryDto)
+        {
+            var category = _categoryRepository.Categories.FirstOrDefault(c => c.Id == id);
+            if (category == null) return NotFound();
+
+            category.Name = categoryDto.Name;
+            category.Description = categoryDto.Description;
+            _categoryRepository.AddEdit(category);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public IActionResult DeleteCategory(int id)
+        {
+            var category = _categoryRepository.Categories.FirstOrDefault(c => c.Id == id);
+            if (category == null) return NotFound();
+
+            _categoryRepository.Delete(id);
+            return NoContent();
         }
     }
 }

@@ -52,5 +52,21 @@ namespace BookStore.Api.Controllers
 
             return Ok(new { Message = "Order placed successfully", OrderId = order.Id });
         }
+
+        [HttpGet]
+        public IActionResult GetAllOrders()
+        {
+            var orders = _orderRepository.Orders.Select(o => new {
+                o.Id,
+                o.FirstName,
+                o.LastName,
+                o.Email,
+                o.OrderTotal,
+                o.OrderedPlaced,
+                o.Address
+            }).OrderByDescending(o => o.OrderedPlaced).ToList();
+
+            return Ok(orders);
+        }
     }
 }
