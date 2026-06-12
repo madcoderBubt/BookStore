@@ -140,7 +140,7 @@
                         <li>Total</li>
                     </ul>
                     <ul class="order_product">
-                        @foreach (var item in Model.ShopingCart.ShopingCartItems)
+                        @foreach (var item in Model.ShopingCartItems)
                         {
                             <li>@item.Book.Name × @item.Amount<span>$@(item.Amount*item.Book.Price)</span></li>
                         }

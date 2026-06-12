@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data;
-using BookStore.Data.Interface;
-using BookStore.Data.Repositories;
-using BookStore.Models;
-using BookStore.Models.ViewModels;
+using BookStore.Infrastructure.Data;
+using BookStore.Domain.Interfaces;
+using BookStore.Infrastructure.Repositories;
+using BookStore.Domain.Entities;
+using BookStore.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

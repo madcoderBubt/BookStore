@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data;
-using BookStore.Data.Interface;
-using BookStore.Models;
+using BookStore.Infrastructure.Data;
+using BookStore.Domain.Interfaces;
+using BookStore.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using BookStore.Models.ViewModels;
+using BookStore.Application.ViewModels;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

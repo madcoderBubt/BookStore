@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data.Interface;
+using BookStore.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -13,15 +13,15 @@ namespace BookStore.Areas.Dashboard.Controllers
     [Authorize]
     public class GuestController : Controller
     {
-        private readonly IGuestMessage _message;
-        public GuestController(IGuestMessage message)
+        private readonly IMessageRepository _message;
+        public GuestController(IMessageRepository message)
         {
             _message = message;
         }
 
         public IActionResult GetData()
         {
-            var dataLists = _message.GuestMessages.ToList();
+            var dataLists = _message.Messages.ToList();
             //var lists = JsonConvert.SerializeObject(
             //    dataLists,
             //    Formatting.Indented,

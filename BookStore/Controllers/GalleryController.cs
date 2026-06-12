@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStore.Data.Interface;
-using BookStore.Models;
-using BookStore.Models.ViewModels;
+using BookStore.Domain.Interfaces;
+using BookStore.Domain.Entities;
+using BookStore.Application.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
