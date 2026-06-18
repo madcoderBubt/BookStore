@@ -1,0 +1,24 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthStateProvider
+@inject NavigationManager Navigation
+@inject BookStore.Ui.Services.ILocalStorageService LocalStorage
+
+<AuthorizeView>
+    <Authorized>
+        <span class="me-3">Hello, @context.User.Identity?.Name!</span>
+        <button class="btn btn-link nav-link d-inline" @onclick="HandleLogout">Log out</button>
+    </Authorized>
+    <NotAuthorized>
+        <a href="login" class="nav-link d-inline me-3">Log in</a>
+        <a href="register" class="nav-link d-inline">Register</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private async Task HandleLogout()
+    {
+        await LocalStorage.RemoveItemAsync("authToken");
+        ((BookStore.Ui.Services.JwtAuthenticationStateProvider)AuthStateProvider).NotifyUserLogout();
+        Navigation.NavigateTo("/");
+    }
+}

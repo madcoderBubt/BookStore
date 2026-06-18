@@ -1,0 +1,130 @@
+@page "/dashboard/categories"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@inject HttpClient Http
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Manage Categories</h2>
+        <button class="btn btn-success" @onclick="ShowAddModal">Add New Category</button>
+    </div>
+
+    @if (categories == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cat in categories)
+                    {
+                        <tr>
+                            <td>@cat.Name</td>
+                            <td>@cat.Description</td>
+                            <td>
+                                <button class="btn btn-sm btn-info me-2" @onclick="() => EditCategory(cat)">Edit</button>
+                                <button class="btn btn-sm btn-danger" @onclick="() => DeleteCategory(cat.Id)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (showModal)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@(editingCategory.Id == 0 ? "Add" : "Edit") Category</h5>
+                    <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm Model="editingCategory" OnValidSubmit="SaveCategory">
+                        <DataAnnotationsValidator />
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <InputText @bind-Value="editingCategory.Name" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <InputTextArea @bind-Value="editingCategory.Description" class="form-control" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Save Changes</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<CategoryDto> categories;
+    private bool showModal = false;
+    private CategoryDto editingCategory = new CategoryDto();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        categories = await Http.GetFromJsonAsync<List<CategoryDto>>("api/categories");
+    }
+
+    private void ShowAddModal()
+    {
+        editingCategory = new CategoryDto();
+        showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+    }
+
+    private void EditCategory(CategoryDto cat)
+    {
+        editingCategory = new CategoryDto {
+            Id = cat.Id,
+            Name = cat.Name,
+            Description = cat.Description
+        };
+        showModal = true;
+    }
+
+    private async Task SaveCategory()
+    {
+        if (editingCategory.Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/categories", editingCategory);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/categories/{editingCategory.Id}", editingCategory);
+        }
+        showModal = false;
+        await LoadData();
+    }
+
+    private async Task DeleteCategory(int id)
+    {
+        await Http.DeleteAsync($"api/categories/{id}");
+        await LoadData();
+    }
+}

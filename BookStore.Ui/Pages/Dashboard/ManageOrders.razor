@@ -1,0 +1,62 @@
+@page "/dashboard/orders"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@inject HttpClient Http
+
+<div class="container mt-4">
+    <h2>All Orders</h2>
+
+    @if (orders == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Email</th>
+                        <th>Total</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in orders)
+                    {
+                        <tr>
+                            <td>@order.Id</td>
+                            <td>@order.OrderedPlaced.ToShortDateString()</td>
+                            <td>@order.FirstName @order.LastName</td>
+                            <td>@order.Email</td>
+                            <td>$@order.OrderTotal</td>
+                            <td>@order.Address</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    private List<OrderListItem>? orders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        orders = await Http.GetFromJsonAsync<List<OrderListItem>>("api/orders");
+    }
+
+    public class OrderListItem
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public decimal OrderTotal { get; set; }
+        public DateTime OrderedPlaced { get; set; }
+        public string Address { get; set; }
+    }
+}

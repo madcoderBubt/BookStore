@@ -1,0 +1,138 @@
+@page "/"
+@inject HttpClient Http
+@inject BookStore.Ui.Services.ICartService CartService
+
+<div class="hero-section bg-dark text-white py-5 mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center;">
+    <div class="container py-5 text-center">
+        <h1 class="display-3 fw-bold mb-4">Buy your favourite Book from Here</h1>
+        <p class="lead mb-5 fs-3">Discover a world of stories, knowledge, and adventure.</p>
+        <a href="/books" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold">Shop Now</a>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h2 class="display-5 fw-bold mb-3">All <span class="text-primary">Products</span></h2>
+            <p class="text-muted lead mx-auto" style="max-width: 700px;">Explore our curated collection of books across various genres. From bestsellers to hidden gems, find your next great read here.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center mb-5 overflow-auto pb-2 border-bottom">
+                <button class="btn btn-link nav-link mx-3 pb-3 @(SelectedCategory == null ? "active fw-bold border-bottom border-primary border-3" : "text-muted")" @onclick="() => SelectCategory(null)">ALL</button>
+                @if (categories != null)
+                {
+                    @foreach (var category in categories.Take(5))
+                    {
+                        <button class="btn btn-link nav-link mx-3 pb-3 @(SelectedCategory == category.Name ? "active fw-bold border-bottom border-primary border-3" : "text-muted")" @onclick="() => SelectCategory(category.Name)">
+                            @category.Name.ToUpper()
+                        </button>
+                    }
+                }
+            </div>
+
+            @if (books == null)
+            {
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    @foreach (var book in books)
+                    {
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm transition-hover">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="@book.ImgUrl" class="card-img-top" alt="@book.Name" style="height: 300px; object-fit: cover;">
+                                    @if(book.PriceOffer > 0)
+                                    {
+                                        <div class="position-absolute top-0 start-0 m-2">
+                                            <span class="badge bg-danger">SALE</span>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="card-body text-center pt-4">
+                                    <h5 class="card-title fw-bold mb-1 text-truncate">@book.Name</h5>
+                                    <p class="card-text text-muted small mb-2">@book.Author</p>
+                                    <div class="d-flex justify-content-center align-items-center mb-3">
+                                        <span class="fs-5 fw-bold text-primary">$@book.Price</span>
+                                        @if(book.PriceOffer > 0)
+                                        {
+                                            <span class="text-muted text-decoration-line-through ms-2 small">$@book.PriceOffer</span>
+                                        }
+                                    </div>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="/details/@book.Id" class="btn btn-light btn-sm rounded-circle p-2" title="View Details">
+                                            <i class="bi bi-search"></i>
+                                        </a>
+                                        <button class="btn btn-primary btn-sm rounded-circle p-2" title="Add to Cart" @onclick="() => AddToCart(book.Id)">
+                                            <i class="bi bi-bag-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .transition-hover {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .transition-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.175) !important;
+    }
+    .nav-link.active {
+        color: var(--bs-primary) !important;
+    }
+</style>
+
+@code {
+    private List<BookDto> books;
+    private List<CategoryDto> categories;
+    private string SelectedCategory;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        categories = await Http.GetFromJsonAsync<List<CategoryDto>>("api/categories");
+        await LoadBooks();
+    }
+
+    private async Task LoadBooks()
+    {
+        var url = "api/books";
+        if (!string.IsNullOrEmpty(SelectedCategory))
+        {
+            url += $"?category={Uri.EscapeDataString(SelectedCategory)}";
+        }
+        books = await Http.GetFromJsonAsync<List<BookDto>>(url);
+    }
+
+    private async Task SelectCategory(string category)
+    {
+        SelectedCategory = category;
+        await LoadBooks();
+    }
+
+    private async Task AddToCart(int bookId)
+    {
+        var cartId = await CartService.GetCartId();
+        await Http.PostAsync($"api/shoppingcart/{cartId}/add/{bookId}", null);
+    }
+}

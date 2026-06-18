@@ -1,0 +1,162 @@
+@page "/dashboard/books"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@inject HttpClient Http
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Manage Books</h2>
+        <button class="btn btn-primary" @onclick="ShowAddModal">Add New Book</button>
+    </div>
+
+    @if (books == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in books)
+                    {
+                        <tr>
+                            <td>@book.Name</td>
+                            <td>@book.Author</td>
+                            <td>@book.CategoryName</td>
+                            <td>$@book.Price</td>
+                            <td>
+                                <button class="btn btn-sm btn-info me-2" @onclick="() => EditBook(book)">Edit</button>
+                                <button class="btn btn-sm btn-danger" @onclick="() => DeleteBook(book.Id)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (showModal)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@(editingBook.Id == 0 ? "Add" : "Edit") Book</h5>
+                    <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm Model="editingBook" OnValidSubmit="SaveBook">
+                        <DataAnnotationsValidator />
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <InputText @bind-Value="editingBook.Name" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Author</label>
+                            <InputText @bind-Value="editingBook.Author" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <InputNumber @bind-Value="editingBook.Price" class="form-control" />
+                        </div>
+                         <div class="mb-3">
+                            <label class="form-label">Category</label>
+                            <select class="form-select" @bind="editingBook.CategoryId">
+                                <option value="">Select Category</option>
+                                @if (categories != null)
+                                {
+                                    @foreach (var cat in categories)
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Img URL</label>
+                            <InputText @bind-Value="editingBook.ImgUrl" class="form-control" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<BookDto> books;
+    private List<CategoryDto> categories;
+    private bool showModal = false;
+    private BookDto editingBook = new BookDto();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        books = await Http.GetFromJsonAsync<List<BookDto>>("api/books");
+        categories = await Http.GetFromJsonAsync<List<CategoryDto>>("api/categories");
+    }
+
+    private void ShowAddModal()
+    {
+        editingBook = new BookDto();
+        showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+    }
+
+    private void EditBook(BookDto book)
+    {
+        editingBook = new BookDto {
+            Id = book.Id,
+            Name = book.Name,
+            Author = book.Author,
+            Details = book.Details,
+            Price = book.Price,
+            CategoryId = book.CategoryId,
+            ImgUrl = book.ImgUrl,
+            Active = book.Active
+        };
+        showModal = true;
+    }
+
+    private async Task SaveBook()
+    {
+        if (editingBook.Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/books", editingBook);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/books/{editingBook.Id}", editingBook);
+        }
+        showModal = false;
+        await LoadData();
+    }
+
+    private async Task DeleteBook(int id)
+    {
+        await Http.DeleteAsync($"api/books/{id}");
+        await LoadData();
+    }
+}

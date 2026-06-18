@@ -1,0 +1,38 @@
+@page "/dashboard"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+
+<div class="container mt-4">
+    <h1 class="display-4 mb-4">Dashboard</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-book text-primary" style="font-size: 3rem;"></i>
+                    <h3 class="card-title mt-3">Books</h3>
+                    <p class="text-muted">Manage your bookstore inventory.</p>
+                    <a href="/dashboard/books" class="btn btn-primary">Manage Books</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-tags text-success" style="font-size: 3rem;"></i>
+                    <h3 class="card-title mt-3">Categories</h3>
+                    <p class="text-muted">Organize books into categories.</p>
+                    <a href="/dashboard/categories" class="btn btn-success">Manage Categories</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-cart-check text-warning" style="font-size: 3rem;"></i>
+                    <h3 class="card-title mt-3">Orders</h3>
+                    <p class="text-muted">View and manage customer orders.</p>
+                    <a href="/dashboard/orders" class="btn btn-warning">Manage Orders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

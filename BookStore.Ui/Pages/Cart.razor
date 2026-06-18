@@ -1,0 +1,90 @@
+@page "/cart"
+@inject HttpClient Http
+@inject BookStore.Ui.Services.ICartService CartService
+
+<div class="container mt-4">
+    <h2>Your Shopping Cart</h2>
+
+    @if (cart == null)
+    {
+        <p>Loading your cart...</p>
+    }
+    else if (!cart.Items.Any())
+    {
+        <div class="alert alert-info">Your cart is empty. <a href="/">Go back to shop.</a></div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in cart.Items)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="@item.ImgUrl" alt="@item.BookName" style="width: 50px; height: 50px; object-fit: cover;" class="me-3">
+                                    <span>@item.BookName</span>
+                                </div>
+                            </td>
+                            <td>$@item.Price</td>
+                            <td>@item.Amount</td>
+                            <td>$@(item.Price * item.Amount)</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" @onclick="() => RemoveItem(item.BookId)">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end fw-bold">Total:</td>
+                        <td class="fw-bold">$@cart.Total</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-outline-danger" @onclick="ClearCart">Clear Cart</button>
+            <a href="/checkout" class="btn btn-success btn-lg">Proceed to Checkout</a>
+        </div>
+    }
+</div>
+
+@code {
+    private ShoppingCartDto cart;
+    private string cartId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cartId = await CartService.GetCartId();
+        await LoadCart();
+    }
+
+    private async Task LoadCart()
+    {
+        cart = await Http.GetFromJsonAsync<ShoppingCartDto>($"api/shoppingcart/{cartId}");
+    }
+
+    private async Task RemoveItem(int bookId)
+    {
+        await Http.DeleteAsync($"api/shoppingcart/{cartId}/remove/{bookId}");
+        await LoadCart();
+    }
+
+    private async Task ClearCart()
+    {
+        await Http.DeleteAsync($"api/shoppingcart/{cartId}");
+        await LoadCart();
+    }
+}
